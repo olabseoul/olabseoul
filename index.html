@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OLAB</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* 헤더 */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background-color: #000;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #333;
+    }
+
+    .logo a {
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      text-decoration: none;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      font-size: 12px;
+      color: white;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ff00cc;
+    }
+
+    .section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    #main-visual img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #fff;
+      color: #000;
+      text-transform: uppercase;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #ff00cc;
+      color: white;
+    }
+
+    /* WORKS */
+    #works .work-item {
+      width: 1080px;
+      height: 200px;
+      margin: 20px auto;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 8px;
+    }
+
+    #works .work-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 20px rgba(255, 0, 204, 0.3);
+    }
+
+    /* CLIENT */
+    #clients {
+      background-color: #000;
+      color: white;
+      flex-direction: column;
+    }
+
+    #clients .client-title {
+      background-color: #fff;
+      color: #000;
+      width: 100%;
+      padding: 40px 0 20px;
+    }
+
+    #clients .client-logos {
+      background-color: #fff;
+      display: flex;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: scroll 20s linear infinite;
+      padding: 20px 0;
+      gap: 50px;
+    }
+
+    #clients .client-logos img {
+      height: 50px;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Footer */
+    footer {
+      background-color: black;
+      color: white;
+      padding: 20px;
+      font-size: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    select {
+      background: #000;
+      color: #fff;
+      border: 1px solid #666;
+      padding: 5px 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><a href="#">OLAB</a></div>
+  <nav>
+    <ul>
+      <li><a href="about.html">ABOUT</a></li>
+      <li><a href="media.html">MEDIA FACADE</a></li>
+      <li><a href="interactive.html">INTERACTIVE-ART</a></li>
+      <li><a href="film.html">FILM</a></li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div id="fullpage">
+  <!-- Section 1: 메인 비주얼 -->
+  <div class="section" id="main-visual" data-anchor="section1">
+    <img src="images/main-visual.jpg" alt="Main Visual">
+  </div>
+
+  <!-- Section 2: 비전 소개 -->
+  <div class="section" id="vision" data-anchor="section2">
+    <div>
+      <h2>OLAB의 비전</h2>
+      <p>우리는 예술, 기술, 상상을 연결합니다.</p>
+      <button class="btn" onclick="location.href='about.html'">ABOUT US</button>
+    </div>
+  </div>
+
+  <!-- Section 3: WORKS -->
+  <div class="section" id="works" data-anchor="section3">
+    <div>
+      <div class="work-item" style="background-image: url('images/work1.jpg');"></div>
+      <div class="work-item" style="background-image: url('images/work2.jpg');"></div>
+      <div class="work-item" style="background-image: url('images/work3.jpg');"></div>
+    </div>
+  </div>
+
+  <!-- Section 4: CONTACT -->
+  <div class="section" id="contact" data-anchor="section4">
+    <div>
+      <h2>OLAB과의 협업을 원하시나요?</h2>
+      <button class="btn" onclick="location.href='contact.html'">CONTACT US</button>
+    </div>
+  </div>
+
+  <!-- Section 5: CLIENTS + FOOTER -->
+  <div class="section" id="clients" data-anchor="section5">
+    <div class="client-title">
+      <h3>CLIENT</h3>
+    </div>
+    <div class="client-logos">
+      <img src="images/chungbuk.png" alt="충청북도">
+      <img src="images/seoul.png" alt="서울시">
+      <img src="images/kutv.png" alt="KUTV">
+    </div>
+    <footer>
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+      <a href="https://youtube.com" target="_blank">YouTube</a>
+      <select onchange="alert('다국어 기능은 준비 중입니다')">
+        <option>한국어</option>
+        <option>English</option>
+        <option>日本語</option>
+      </select>
+    </footer>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+<script>
+  new fullpage('#fullpage', {
+    autoScrolling: false,
+    fitToSection: false,
+    navigation: true,
+    navigationPosition: 'right',
+    anchors: ['section1', 'section2', 'section3', 'section4', 'section5'],
+    scrollHorizontally: false
+  });
+</script>
+</body>
+</html>
