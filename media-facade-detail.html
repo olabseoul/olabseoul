@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2024 충청북도 미디어파사드 | OLAB</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: black;
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+    }
+	  .logo a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+
+    nav {
+      display: flex;
+      gap: 24px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-size: 0.9em;
+    }
+
+    nav a.active {
+      color: red;
+      font-weight: bold;
+    }
+
+    .main-content {
+      padding: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      margin-bottom: 40px;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .project-title {
+      font-size: 1.6em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .project-meta {
+      font-size: 0.9em;
+      color: #aaa;
+      margin-bottom: 40px;
+    }
+
+    .project-meta span {
+      margin-right: 20px;
+    }
+
+    .description {
+      white-space: pre-line;
+      font-size: 0.95em;
+      line-height: 1.6em;
+      margin-bottom: 40px;
+    }
+
+    .project-image {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    footer {
+      background: black;
+      color: #0066ff;
+      padding: 30px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    footer div {
+      font-size: 0.7em;
+    }
+
+    .social-dots {
+      color: white;
+      font-size: 1.5em;
+    }
+
+    @media (max-width: 600px) {
+      .main-content {
+        padding: 20px;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo"><a href="index.html">OLAB</a></div>
+    <nav>
+      <a href="about.html">ABOUT US</a>
+      <a href="media-facade.html" class="active">MEDIA FACADE</a>
+      <a href="interactive-art.html">INTERACTIVE ART</a>
+      <a href="film.html">FILM</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/유튜브영상ID" title="2024 충북 미디어파사드" allowfullscreen></iframe>
+    </div>
+
+    <div class="project-title">2024 충청북도 미디어파사드 ‘충BOOK! 그리고,’</div>
+
+    <div class="project-meta">
+      <span><strong>CLIENT</strong> | 충청북도청</span>
+      <span><strong>DATE</strong> | 2024</span>
+      <span><strong>TYPE</strong> | MEDIA FACADE</span>
+    </div>
+
+    <div class="project-image">
+      <img src="images/facade1.jpg" alt="미디어파사드 이미지1" class="project-image"/>
+    </div>
+
+    <div class="description">
+2024 충청북도 미디어파사드 ‘충BOOK! 그리고’는 OLAB이 제작한 작품입니다.
+
+(여기에 실제 설명을 입력해주세요 – 지금은 임시 문장입니다.
+예: 도서관 외벽을 활용한 대형 미디어 프로젝션을 통해 지역 문화의 정체성과 책의 가치를 재조명한 작품입니다.)
+    </div>
+
+    <div class="project-image">
+      <img src="images/facade2.jpg" alt="미디어파사드 이미지2" class="project-image"/>
+    </div>
+  </main>
+
+  <footer>
+    <p>THANK YOU FOR WATCHING</p>
+  </footer>
+</body>
+</html>

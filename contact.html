@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONTACT | OLAB</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: #000;
+      border-bottom: 1px solid #333;
+    }
+    .logo {
+      font-weight: bold;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    nav ul li a {
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    .page-title {
+      font-size: 40px;
+      color: #e6451c;
+      text-align: center;
+      margin: 40px 0 10px;
+    }
+    .divider {
+      width: 2px;
+      height: 60px;
+      background-color: #fff;
+      margin: 0 auto 40px;
+    }
+    .form-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    label {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    input, select, textarea {
+      padding: 10px;
+      background: #111;
+      border: 1px solid #333;
+      color: #fff;
+      font-size: 14px;
+    }
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+    }
+    .note {
+      font-size: 12px;
+      color: #888;
+      line-height: 1.4;
+    }
+    button {
+      background: #e6451c;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-top: 10px;
+    }
+    footer {
+      background-color: #000;
+      color: #0055ff;
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><a href="index.html">OLAB</a></div>
+    <nav>
+      <ul>
+        <li><a href="about.html">ABOUT US</a></li>
+        <li><a href="media-facade.html">MEDIA FACADE</a></li>
+        <li><a href="interactive-art.html">INTERACTIVE ART</a></li>
+        <li><a href="film.html">FILM</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h1 class="page-title">CONTACT</h1>
+  <div class="divider"></div>
+
+  <section class="form-container">
+    <form action="https://formsubmit.co/olabseoul@naver.com" method="POST" onsubmit="return handleSubmit();">
+      <input type="text" name="_honey" style="display:none">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="#popup-success">
+
+      <label>회사/단체명</label>
+      <input type="text" name="organization">
+
+      <label>직책</label>
+      <input type="text" name="position">
+
+      <label>이메일*</label>
+      <input type="email" name="email" required>
+
+      <label>담당자명</label>
+      <input type="text" name="name">
+
+      <label>연락처*</label>
+      <input type="text" name="phone" required>
+
+      <label>유입경로</label>
+      <input type="text" name="source">
+
+      <label>프로젝트 종류 (중복 선택 가능)</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="project_type[]" value="Media Facade"> Media Facade</label>
+        <label><input type="checkbox" name="project_type[]" value="Film"> Film</label>
+        <label><input type="checkbox" name="project_type[]" value="Interactive Art"> Interactive Art</label>
+        <label><input type="checkbox" name="project_type[]" value="Other"> Other</label>
+      </div>
+
+      <label>일정</label>
+      <input type="text" name="schedule">
+
+      <label>상세내용*</label>
+      <textarea name="details" rows="5" required></textarea>
+
+      <label>첨부파일(구글 드라이브 링크)</label>
+      <input type="url" name="attachment">
+
+      <button type="submit">작성 완료</button>
+
+      <p class="note">
+        *각 프로젝트에 대한 견적 및 협업 문의는 홈페이지 접수 및 이메일(olabseoul@naver.com)을 통해 접수 가능합니다.<br>
+        보다 빠르고 원활한 상담을 원하시는 경우, 이메일 접수를 권장드립니다.
+      </p>
+    </form>
+  </section>
+
+  <div id="popup-success" style="display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.8); z-index:9999; display:flex; align-items:center; justify-content:center;">
+    <div style="background:#fff; color:#000; padding:30px; border-radius:12px; max-width:300px; text-align:center;">
+      <p style="font-weight:bold;">정상적으로 처리되었습니다.</p>
+      <button onclick="closePopup()" style="margin-top:20px; padding:10px 20px; background:#e6451c; color:#fff; border:none; border-radius:6px; cursor:pointer;">닫기</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>THANK YOU FOR WATCHING</p>
+  </footer>
+
+  <script>
+    function handleSubmit() {
+      setTimeout(() => {
+        document.getElementById("popup-success").style.display = "flex";
+      }, 100);
+      return true;
+    }
+
+    function closePopup() {
+      document.getElementById("popup-success").style.display = "none";
+    }
+  </script>
+</body>
+</html>
