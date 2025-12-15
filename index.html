@@ -456,53 +456,184 @@
       color: #555;
       text-align: center;
     }
-	  
-@media (max-width: 768px){
-  header{
-    padding: 0 20px !important;
-    height: 64px !important;
-  }
 
-  nav{
-    gap: 18px !important;
-  }
+    /* ======================================================
+       MOBILE ONLY (여기만 수정/강화)
+       - 데스크톱은 절대 안 건드림
+    ====================================================== */
+    @media (max-width: 768px){
 
-  nav a{
-    font-size: 13px !important;
-    letter-spacing: 0.6px !important;
-  }
+      /* --- HEADER: 겹침 방지(햄버거 없이) --- */
+      header{
+        padding: 0 16px !important;
+        height: 64px !important;
+      }
 
-  .contact{
-    font-size: 14px !important;
-  }
+      .logo img{
+        height: 20px !important;
+      }
 
-  /* 페이지 컨테이너 공통 폭 */
-  .page-wrap,
-  .contact-wrap{
-    width: calc(100% - 40px) !important;
-    max-width: 100% !important;
-  }
+      /* 모바일에서는 가운데 고정 nav가 겹치므로 static으로 전환 */
+      nav{
+        position: static !important;
+        left: auto !important;
+        transform: none !important;
+        flex: 1 1 auto !important;
+        justify-content: center !important;
+        gap: 14px !important;
+        display: flex !important;
+        margin: 0 10px !important;
+        flex-wrap: nowrap !important;
+      }
 
-  /* 큰 제목 줄이기 */
-  .page-title{
-    font-size: 34px !important;
-    margin: 12px 0 28px !important;
-  }
+      nav a{
+        font-size: 12px !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
+      }
 
-  /* 푸터 패딩 줄이기 */
-  .footer{
-    padding: 10px 20px 24px !important;
-  }
+      .contact{
+        font-size: 12px !important;
+        letter-spacing: 0.6px !important;
+        white-space: nowrap !important;
+      }
 
-  .footer-nav a{
-    margin-right: 18px !important;
-  }
+      /* --- indicator: 모바일에서는 숨기는 게 안정적 --- */
+      .indicator{
+        display: none !important;
+      }
 
-  .footer-left{
-    padding-left: 0 !important;
-  }
-}
+      /* --- MAIN 로고: 모바일에서는 더 보기 좋게 --- */
+      .main-content img{
+        width: 68vw !important;
+        max-width: none !important;
+      }
 
+      /* --- ABOUT 텍스트 축소/폭 제한 --- */
+      .about-text{
+        width: 92% !important;
+      }
+
+      .about-text h2{
+        font-size: 26px !important;
+        margin-bottom: 8px !important;
+      }
+
+      .about-text h4{
+        font-size: 16px !important;
+        margin-bottom: 20px !important;
+        line-height: 1.35 !important;
+      }
+
+      .about-btn{
+        font-size: 14px !important;
+      }
+
+      /* --- WHO 텍스트/박스 축소 --- */
+      .who-text{
+        width: 92% !important;
+      }
+
+      .who-text h2{
+        font-size: 22px !important;
+        margin-bottom: 12px !important;
+      }
+
+      .who-text h4{
+        font-size: 13px !important;
+        margin-bottom: 18px !important;
+        line-height: 1.5 !important;
+      }
+
+      .who-boxes{
+        gap: 10px !important;
+      }
+
+      .who-box{
+        padding: 10px 14px !important;
+        border-radius: 14px !important;
+        font-size: 12px !important;
+      }
+
+      /* --- WORKS: 상단 패딩/슬라이더 폭/타이틀 축소 --- */
+      #works{
+        padding-top: 64px !important;
+      }
+
+      .slider{
+        width: 92% !important;
+        border-radius: 8px !important;
+      }
+
+      .navigation{
+        width: 92% !important;
+      }
+
+      .navigation .prev,
+      .navigation .next{
+        font-size: 2rem !important;
+        padding: 8px 10px !important;
+      }
+
+      .works-title{
+        font-size: 16px !important;
+        margin-top: 14px !important;
+      }
+
+      /* --- JOIN 버튼 축소 --- */
+      .scroll-line{
+        height: 120px !important;
+        margin-bottom: 16px !important;
+      }
+
+      .join-btn{
+        padding: 12px 28px !important;
+        font-size: 14px !important;
+        border-radius: 10px !important;
+      }
+
+      /* --- FOOTER: 모바일 정리(랩/폰트 축소) --- */
+      .footer{
+        padding: 12px 16px 22px !important;
+      }
+
+      .footer-left{
+        padding-left: 0 !important;
+        margin-bottom: 8px !important;
+      }
+
+      .footer-nav{
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 10px 16px !important;
+        margin: 10px 0 10px !important;
+      }
+
+      .footer-nav a{
+        margin-right: 0 !important;
+        font-size: 12px !important;
+      }
+
+      .footer-right{
+        margin-left: 0 !important;
+        justify-content: flex-start !important;
+        padding-top: 6px !important;
+      }
+
+      .footer-info{
+        margin-top: 22px !important;
+        font-size: 12px !important;
+      }
+
+      .footer-contact{
+        gap: 6px 10px !important;
+        font-size: 12px !important;
+      }
+
+      .copyright{
+        font-size: 11px !important;
+      }
+    }
   </style>
 </head>
 
@@ -525,7 +656,7 @@
     <a href="contact.html" class="contact">CONTACT</a>
   </header>
 
-  <!-- PAGE INDICATOR (하나만 유지) -->
+  <!-- PAGE INDICATOR -->
   <div class="indicator">
     <a href="#home" class="active"></a>
     <a href="#about"></a>
@@ -572,27 +703,26 @@
     </div>
   </section>
 
-  <!-- WORKS SECTION (위 Works 삭제, 아래 Works만 유지) -->
+  <!-- WORKS SECTION -->
   <section id="works">
     <div class="slider">
       <div class="slides">
-  <a href="project-chungbuk-2024.html" class="slide">
-    <img src="images/work1.png" alt="Chungbuk 2024">
-  </a>
-  <a href="project-chungbuk-2025.html" class="slide">
-    <img src="images/work2.png" alt="Chungbuk 2025">
-  </a>
-  <a href="project-seoullo-2025.html" class="slide">
-    <img src="images/work3.png" alt="seoullo 2025">
-  </a>
-  <a href="project-jeonju-2025.html" class="slide">
-    <img src="images/work4.png" alt="jeonju 2025">
-  </a>
-  <a href="project-gmap-2025.html" class="slide">
-    <img src="images/work5.png" alt="g-map2025">
-  </a>
-</div>
-
+        <a href="project-chungbuk-2024.html" class="slide">
+          <img src="images/work1.png" alt="Chungbuk 2024">
+        </a>
+        <a href="project-chungbuk-2025.html" class="slide">
+          <img src="images/work2.png" alt="Chungbuk 2025">
+        </a>
+        <a href="project-seoullo-2025.html" class="slide">
+          <img src="images/work3.png" alt="seoullo 2025">
+        </a>
+        <a href="project-jeonju-2025.html" class="slide">
+          <img src="images/work4.png" alt="jeonju 2025">
+        </a>
+        <a href="project-gmap-2025.html" class="slide">
+          <img src="images/work5.png" alt="g-map2025">
+        </a>
+      </div>
     </div>
 
     <div class="navigation">
@@ -600,7 +730,6 @@
       <div class="next">&#10095;</div>
     </div>
 
-    <!-- Works 버튼 (이것만 남김 / projects.html로 연결) -->
     <h3 class="works-title">
       <a href="projects.html">▶ Works</a>
     </h3>
