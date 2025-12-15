@@ -7,15 +7,8 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Pretendard', sans-serif;
@@ -57,7 +50,7 @@
 
     .content-inner {
       position: relative;
-      max-width: 1100px;   /* 살짝 더 넓게 */
+      max-width: 1100px;
       padding: 0 48px;
       text-align: left;
     }
@@ -164,14 +157,12 @@
       margin-top: 56px;
     }
 
-    /* 오른쪽 영역 (세로선 + 텍스트 박스) */
     .intro-right {
       display: flex;
       align-items: flex-start;
       gap: 32px;
     }
 
-    /* 로고와 텍스트 사이 세로선 */
     .intro-line {
       width: 1px;
       height: 170px;
@@ -184,7 +175,6 @@
       line-height: 1.7;
     }
 
-    /* 흰색 네모 태그 박스 */
     .intro-tag-box {
       display: inline-block;
       background: #fff;
@@ -213,9 +203,7 @@
     }
 
     /* ---------- SECTION 2 : WHO WE ARE ---------- */
-    #about-who .content-inner {
-      text-align: center;
-    }
+    #about-who .content-inner { text-align: center; }
 
     #about-who h2,
     #about-vision h2,
@@ -243,7 +231,6 @@
       justify-content: center;
     }
 
-    /* VISION 다이아몬드 도형 영역 */
     .vision-shapes {
       display: flex;
       justify-content: center;
@@ -251,7 +238,6 @@
       margin: 48px 0 40px;
     }
 
-    /* 각 도형 */
     .vision-shape {
       width: 200px;
       height: 200px;
@@ -264,19 +250,14 @@
       position: relative;
     }
 
-    /* 두 번째 도형을 겹치게 */
-    .vision-shape + .vision-shape {
-      margin-left: -10px;
-    }
+    .vision-shape + .vision-shape { margin-left: -10px; }
 
-    /* 도형 안 텍스트는 다시 수평으로 */
     .vision-shape span {
       transform: rotate(-45deg);
       font-size: 20px;
       font-weight: 700;
     }
 
-    /* 리드 문장(위 한 줄) */
     .vision-lead {
       font-size: 18px;
       font-weight: 600;
@@ -285,8 +266,6 @@
     }
 
     /* ---------- SECTION 4 : WHAT WE DO ---------- */
-
-    /* WHAT WE DO 전체 컨테이너 */
     .what-container {
       width: 80%;
       max-width: 1200px;
@@ -295,7 +274,6 @@
       margin-top: -30px;
     }
 
-    /* 제목 */
     .what-title {
       font-size: 38px;
       font-weight: 800;
@@ -319,66 +297,47 @@
       color: #fff;
     }
 
-    /* 아래 두 컬럼 */
     .what-columns {
       display: flex;
       gap: 90px;
       margin-top: 30px;
     }
 
-    /* 각 내용 박스 */
-    .what-box {
-      width: 50%;
-    }
+    .what-box { width: 50%; }
 
-    /* 제목 */
     .what-box h3 {
       font-size: 54px;
       font-weight: 800;
       margin-bottom: 14px;
     }
 
-    /* 세로 라인 */
     .what-line {
       width: 3px;
       height: 130px;
       background: #fff;
       margin-bottom: 20px;
+      flex-shrink: 0;
     }
 
-    /* 세로선 + 텍스트 래퍼 */
     .what-line-wrap {
       display: flex;
       gap: 24px;
       align-items: flex-start;
     }
 
-    .what-line {
-      flex-shrink: 0;
-    }
+    .what-line-wrap p { margin: 0; }
 
-    .what-line-wrap p {
-      margin: 0;
-    }
-
-    /* 본문 */
     .what-box p {
       font-size: 18px;
       line-height: 2.1;
       color: #e5e5e5;
     }
 
-    /* 미디어 아트 한 줄 유지용 */
-    #about-whatwedo .nowrap {
-      white-space: nowrap;
-    }
+    #about-whatwedo .nowrap { white-space: nowrap; }
 
     /* ---------- SECTION 5 : CONTENTS ---------- */
-    #about-contents {
-      position: relative;
-    }
+    #about-contents { position: relative; }
 
-    /* 전체 래퍼 */
     #about-contents .contents-wrap {
       position: relative;
       width: 80%;
@@ -387,7 +346,6 @@
       color: #fff;
     }
 
-    /* 위쪽 : OLAB 로고 + 세로선 + 텍스트 */
     .contents-top {
       display: flex;
       align-items: center;
@@ -420,13 +378,11 @@
       color: #e8e8e8;
     }
 
-    /* 아래쪽 : 체험형 인터랙티브 콘텐츠 */
     .contents-bottom {
       max-width: 760px;
       text-align: left;
       margin-top: 24px;
       margin-left: calc(280px + 60px + 60px + 1px);
-      /* 280(로고 너비) + 60(gap) + 1(세로선) + 60(gap) */
     }
 
     .contents-bottom-title {
@@ -441,71 +397,7 @@
       color: #e8e8e8;
     }
 
-    /* 반응형 */
-    @media (max-width: 768px) {
-      header {
-        padding: 0 20px;
-      }
-      nav {
-        gap: 24px;
-      }
-      .content-inner {
-        padding: 0 20px;
-      }
-      .intro-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 32px;
-      }
-      .intro-logo img {
-        width: 220px;
-      }
-      .intro-right {
-        gap: 20px;
-      }
-      .intro-line {
-        height: 160px;
-      }
-      .what-tags {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .contents-top {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 24px;
-      }
-
-      .contents-logo img {
-        width: 220px;
-      }
-
-      .contents-divider {
-        height: 130px;
-      }
-
-      .contents-bottom {
-        text-align: left;
-        margin: 40px 0 0;
-        margin-left: 0;
-      }
-
-      .footer-top {
-        flex-direction: column;
-        gap: 16px;
-        align-items: flex-start;
-      }
-      .footer-left {
-        padding-left: 0;
-      }
-      .footer-nav {
-        gap: 16px;
-        flex-wrap: wrap;
-      }
-    }
-
-/* ---------- FOOTER ---------- */
+    /* ---------- FOOTER ---------- */
     .footer {
       background-color: #202020;
       color: #888;
@@ -513,10 +405,7 @@
       padding: 10px 80px;
     }
 
-    .footer-logo {
-      display: inline-block;
-      text-decoration: none;
-    }
+    .footer-logo { display: inline-block; text-decoration: none; }
 
     .footer-logo-img {
       height: 16px;
@@ -558,10 +447,7 @@
       fill: currentColor;
     }
 
-    .footer-right .icon:hover {
-      color: #fff;
-      transform: scale(1.1);
-    }
+    .footer-right .icon:hover { color: #fff; transform: scale(1.1); }
 
     .footer-right {
       display: flex;
@@ -593,52 +479,250 @@
       color: #555;
       text-align: center;
     }
-@media (max-width: 768px){
-  header{
-    padding: 0 20px !important;
-    height: 64px !important;
-  }
 
-  nav{
-    gap: 18px !important;
-  }
+    /* ======================================================
+       MOBILE ONLY (여기만 적용)
+       - 데스크톱 절대 유지
+    ====================================================== */
+    @media (max-width: 768px) {
 
-  nav a{
-    font-size: 13px !important;
-    letter-spacing: 0.6px !important;
-  }
+      /* ===== Header: 모바일 겹침 방지 ===== */
+      header{
+        padding: 0 16px !important;
+        height: 64px !important;
+      }
+      .logo img{
+        height: 20px !important;
+      }
 
-  .contact{
-    font-size: 14px !important;
-  }
+      /* 중앙 고정 nav → 모바일에서는 static으로 (겹침 해결) */
+      nav{
+        position: static !important;
+        left: auto !important;
+        transform: none !important;
+        display: flex !important;
+        gap: 12px !important;
+        margin: 0 10px !important;
+      }
+      nav a{
+        font-size: 12px !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
+      }
+      .contact{
+        font-size: 12px !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
+      }
 
-  /* 페이지 컨테이너 공통 폭 */
-  .page-wrap,
-  .contact-wrap{
-    width: calc(100% - 40px) !important;
-    max-width: 100% !important;
-  }
+      /* ===== Indicator: 모바일 숨김 ===== */
+      .indicator{ display: none !important; }
 
-  /* 큰 제목 줄이기 */
-  .page-title{
-    font-size: 34px !important;
-    margin: 12px 0 28px !important;
-  }
+      /* ===== 공통 패딩 줄이기 ===== */
+      .content-inner{ padding: 0 16px !important; }
 
-  /* 푸터 패딩 줄이기 */
-  .footer{
-    padding: 10px 20px 24px !important;
-  }
+      /* ===== INTRO: 세로 스택 + 폰트 축소 ===== */
+      #about-intro{ padding-top: 64px !important; }
+      .intro-inner{
+        width: calc(100% - 32px) !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 18px !important;
+      }
+      .intro-logo img{
+        width: 200px !important;
+        margin-top: 0 !important;
+      }
+      .intro-right{
+        width: 100% !important;
+        gap: 14px !important;
+      }
+      .intro-line{
+        height: 120px !important;
+        margin-top: 0 !important;
+      }
+      .intro-tag{ font-size: 12px !important; }
+      .intro-title{ font-size: 22px !important; margin: 10px 0 !important; }
+      .intro-text-box p{
+        font-size: 13px !important;
+        line-height: 1.75 !important;
+        letter-spacing: 0.02em !important;
+      }
 
-  .footer-nav a{
-    margin-right: 18px !important;
-  }
+      /* ===== WHO/VISION 공통 타이포 ===== */
+      #about-who h2, #about-vision h2, #about-whatwedo h2{
+        font-size: 20px !important;
+        margin-bottom: 12px !important;
+      }
+      #about-who p, #about-vision p, #about-whatwedo p{
+        font-size: 13px !important;
+        line-height: 1.75 !important;
+      }
+      .vision-lead{
+        font-size: 13px !important;
+        line-height: 1.75 !important;
+      }
 
-  .footer-left{
-    padding-left: 0 !important;
-  }
-}
+      /* ===== VISION: 도형 축소/정렬 ===== */
+      .vision-shapes{
+        margin: 18px 0 16px !important;
+        gap: 10px !important;
+      }
+      .vision-shape{
+        width: 140px !important;
+        height: 140px !important;
+        border-radius: 34px !important;
+      }
+      .vision-shape + .vision-shape{ margin-left: -6px !important; }
+      .vision-shape span{ font-size: 14px !important; }
 
+      /* ===== WHAT WE DO: 세로 스택 + 폰트 축소 ===== */
+      .what-container{
+        width: calc(100% - 32px) !important;
+        margin-top: 0 !important;
+      }
+      .what-title{
+        font-size: 22px !important;
+        margin-bottom: 18px !important;
+      }
+      .what-tags{
+        flex-direction: column !important;
+        gap: 10px !important;
+        margin-bottom: 18px !important;
+      }
+      .what-tag{
+        padding: 14px 16px !important;
+        border-radius: 16px !important;
+        font-size: 13px !important;
+      }
+      .what-columns{
+        flex-direction: column !important;
+        gap: 18px !important;
+        margin-top: 0 !important;
+      }
+      .what-box{
+        width: 100% !important;
+      }
+      .what-box h3{
+        font-size: 26px !important;
+        margin-bottom: 10px !important;
+      }
+      .what-line{
+        height: 92px !important;
+        width: 3px !important;
+      }
+      .what-line-wrap{
+        gap: 14px !important;
+      }
+      .what-box p{
+        font-size: 13px !important;
+        line-height: 1.75 !important;
+      }
+
+      /* ===== CONTENTS: 세로 스택 + 폰트 축소 ===== */
+      #about-contents .contents-wrap{
+        width: calc(100% - 32px) !important;
+      }
+      .contents-top{
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 16px !important;
+        margin-top: 0 !important;
+        margin-bottom: 18px !important;
+      }
+      .contents-logo img{
+        width: 200px !important;
+      }
+      .contents-divider{
+        height: 110px !important;
+      }
+      .contents-top-text-title,
+      .contents-bottom-title{
+        font-size: 20px !important;
+        margin-bottom: 10px !important;
+      }
+      .contents-top-text-body,
+      .contents-bottom-body{
+        font-size: 13px !important;
+        line-height: 1.75 !important;
+      }
+      .contents-bottom{
+        margin: 18px 0 0 0 !important;
+        margin-left: 0 !important;
+        max-width: 100% !important;
+      }
+
+      /* ===== Footer: 모바일 스택 (index에서 해결한 방식) ===== */
+      .footer{ padding: 14px 16px 22px !important; }
+
+      .footer-top{ 
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+      }
+
+      .footer-left,
+      .footer-nav,
+      .footer-right,
+      .footer-info{ width: 100% !important; }
+
+      .footer-left{
+        padding-left: 0 !important;
+        justify-content: flex-start !important;
+        margin: 0 !important;
+      }
+
+      .footer-logo-img{
+        height: 14px !important;
+        transform: none !important;
+      }
+
+      .footer-nav{
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 10px 16px !important;
+        margin: 6px 0 10px 0 !important;
+        justify-content: flex-start !important;
+      }
+      .footer-nav a{
+        margin-right: 0 !important;
+        font-size: 12px !important;
+        line-height: 1.2 !important;
+      }
+
+      .footer-right{
+        margin-left: 0 !important;
+        justify-content: flex-start !important;
+        gap: 12px !important;
+        padding: 2px 0 10px 0 !important;
+      }
+      .footer-right .icon{ margin-left: 0 !important; }
+
+      .footer-info{
+        margin-top: 10px !important;
+        font-size: 12px !important;
+        text-align: left !important;
+      }
+      .footer-contact{
+        justify-content: flex-start !important;
+        gap: 6px 10px !important;
+        flex-wrap: wrap !important;
+        font-size: 12px !important;
+      }
+      .copyright{
+        margin-top: 8px !important;
+        font-size: 11px !important;
+        text-align: left !important;
+      }
+
+      /* iPhone 전화번호 파란 링크 방지 */
+      .footer a,
+      .footer a:visited{
+        color: inherit !important;
+        text-decoration: none !important;
+      }
+    }
   </style>
 </head>
 
@@ -670,7 +754,7 @@
     <a href="#about-contents"></a>
   </div>
 
-  <!-- SECTION 1 : INTRO (로고 + 세로선 + 텍스트) -->
+  <!-- SECTION 1 : INTRO -->
   <section id="about-intro">
     <div class="intro-inner">
       <div class="intro-logo">
@@ -718,22 +802,15 @@
     <div class="content-inner">
       <h2>OLAB VISION</h2>
 
-      <!-- 다이아몬드 도형 2개 -->
       <div class="vision-shapes">
-        <div class="vision-shape">
-          <span>Creative</span>
-        </div>
-        <div class="vision-shape">
-          <span>Experiment</span>
-        </div>
+        <div class="vision-shape"><span>Creative</span></div>
+        <div class="vision-shape"><span>Experiment</span></div>
       </div>
 
-      <!-- 위 한 줄 설명 -->
       <p class="vision-lead">
         세상을 바꿀 상상력과 경험을 가진 능력과 함께 세상을 비출 수 있는 방법을 찾아 모험을 떠납니다.
       </p>
 
-      <!-- 본문 -->
       <p>
         OLAB은 기술과 예술, 공간과 이야기를 융합하여 브랜드를 살아있는 경험으로 확장시키고<br>
         미래형 도시문화와 미디어 커뮤니케이션의 새로운 패러다임을 제시합니다.
@@ -793,7 +870,6 @@
     <img class="bg-img" src="images/about_contents.png" alt="CONTENTS">
 
     <div class="contents-wrap">
-      <!-- 위쪽 : OLAB 로고 + 세로선 + 텍스트 -->
       <div class="contents-top">
         <div class="contents-logo">
           <img src="images/logo_about.png" alt="OLAB Logo">
@@ -811,7 +887,6 @@
         </div>
       </div>
 
-      <!-- 아래쪽 : 체험형 인터랙티브 콘텐츠 -->
       <div class="contents-bottom">
         <h2 class="contents-bottom-title">체험형 인터랙티브 콘텐츠</h2>
         <p class="contents-bottom-body">
@@ -839,8 +914,7 @@
       </nav>
 
       <div class="footer-right">
-        <a href="https://www.instagram.com/olab_seoul" target="_blank" rel="noopener noreferrer" class="icon">
-          <!-- Instagram SVG -->
+        <a href="https://www.instagram.com/olab_seoul" target="_blank" rel="noopener noreferrer" class="icon" aria-label="instagram">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img" aria-hidden="true">
             <path fill="currentColor"
               d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 
@@ -870,8 +944,7 @@
           </svg>
         </a>
 
-        <a href="https://www.youtube.com/@olab_seoul" target="_blank" rel="noopener noreferrer" class="icon">
-          <!-- YouTube SVG -->
+        <a href="https://www.youtube.com/@olab_seoul" target="_blank" rel="noopener noreferrer" class="icon" aria-label="youtube">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" role="img" aria-hidden="true">
             <path fill="currentColor"
               d="M549.7 124.1c-6.3-23.7-24.9-42.4-48.4-48.7C456.4 
@@ -902,7 +975,6 @@
   </footer>
 
   <script>
-    // 섹션에 따라 오른쪽 점 active 처리
     const sections = document.querySelectorAll("section");
     const dots = document.querySelectorAll(".indicator a");
 
@@ -917,11 +989,8 @@
       });
 
       dots.forEach((dot, index) => {
-        if (index === currentIndex) {
-          dot.classList.add("active");
-        } else {
-          dot.classList.remove("active");
-        }
+        if (index === currentIndex) dot.classList.add("active");
+        else dot.classList.remove("active");
       });
     });
   </script>
