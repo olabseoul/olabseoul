@@ -67,6 +67,7 @@
       color: #fff;
       cursor: pointer;
     }
+
     /* ---------- PAGE WRAP ---------- */
     main {
       width: 100%;
@@ -166,25 +167,26 @@
     }
 
     /* ---------- OVERVIEW (좌: 라벨 / 우: 본문) ---------- */
-.overview {
-  display: grid;
-  grid-template-columns: 200px 1fr; /* 라벨 컬럼 살짝 줄임 */
-  column-gap: clamp(22px, 73.2vw, 86px);
-  align-items: start;
-  margin-bottom: clamp(34px, 4vw, 68px);
-}
+    .overview {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      column-gap: clamp(22px, 3.2vw, 86px); /* ✅ 모바일에서 폭발 방지 */
+      align-items: start;
+      margin-bottom: clamp(34px, 4vw, 68px);
+    }
 
-.overview-label {
-  font-size: clamp(16px, 1.25vw, 20px); /* 본문보다 확실히 크게 */
-  font-weight: 900;                    /* 더 볼드 */
-  letter-spacing: 0.18em;              /* 타이틀 느낌 강화 */
-  color: rgba(255,255,255,0.95);
-  white-space: nowrap;
-  line-height: 1.2;
-  padding-top: 35px;                    /* 본문 첫 줄이랑 높이 분리 */
-  text-transform: uppercase;
-}
-	      .overview-body {
+    .overview-label {
+      font-size: clamp(16px, 1.25vw, 20px);
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.95);
+      white-space: nowrap;
+      line-height: 1.2;
+      padding-top: 35px;
+      text-transform: uppercase;
+    }
+
+    .overview-body {
       font-size: clamp(16px, 1.25vw, 20px);
       line-height: 1.7;
       letter-spacing: 0.01em;
@@ -192,8 +194,6 @@
       font-weight: 400;
       white-space: pre-line;
     }
-
-
 
     /* ---------- GALLERY ---------- */
     .gallery {
@@ -223,7 +223,8 @@
     }
 
     /* ---------- FOOTER ---------- */
-    footer.footer {
+    footer.footer,
+    .footer {
       background-color: #333;
       color: #888;
       font-family: "Pretendard", sans-serif;
@@ -308,53 +309,135 @@
       text-align: center;
     }
 
+    /* ✅ 아이폰에서 전화번호/메일 파란 링크 방지 */
+    .footer a,
+    .footer a:visited{
+      color: inherit !important;
+      text-decoration: none !important;
+    }
+    .footer a[href^="tel:"],
+    .footer a[href^="mailto:"]{
+      color: inherit !important;
+      text-decoration: none !important;
+    }
+
     /* ---------- RESPONSIVE ---------- */
-   @media (max-width: 768px){
-  header{
-    padding: 0 20px !important;
-    height: 64px !important;
-  }
+    @media (max-width: 768px){
+      header{
+        padding: 0 16px !important;
+        height: 64px !important;
+      }
 
-  nav{
-    gap: 18px !important;
-  }
+      .logo img{
+        height: 20px !important;
+      }
 
-  nav a{
-    font-size: 13px !important;
-    letter-spacing: 0.6px !important;
-  }
+      nav{
+        position: static !important;
+        left: auto !important;
+        transform: none !important;
+        gap: 12px !important;
+      }
 
-  .contact{
-    font-size: 14px !important;
-  }
+      nav a{
+        font-size: 12px !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
+      }
 
-  /* 페이지 컨테이너 공통 폭 */
-  .page-wrap,
-  .contact-wrap{
-    width: calc(100% - 40px) !important;
-    max-width: 100% !important;
-  }
+      .contact{
+        font-size: 12px !important;
+        white-space: nowrap !important;
+      }
 
-  /* 큰 제목 줄이기 */
-  .page-title{
-    font-size: 34px !important;
-    margin: 12px 0 28px !important;
-  }
+      main{
+        padding-top: 96px !important;
+        padding-bottom: 72px !important;
+      }
 
-  /* 푸터 패딩 줄이기 */
-  .footer{
-    padding: 10px 20px 24px !important;
-  }
+      /* ✅ 핵심: 상세 페이지 컨테이너 폭 */
+      .detail-wrap{
+        width: calc(100% - 32px) !important;
+        max-width: 100% !important;
+      }
 
-  .footer-nav a{
-    margin-right: 18px !important;
-  }
+      .video-card,
+      .hero-shot,
+      .shot{
+        border-radius: 10px !important;
+      }
 
-  .footer-left{
-    padding-left: 0 !important;
-  }
-}
+      .detail-title{
+        font-size: 26px !important;
+      }
 
+      .meta-row{
+        gap: 10px 16px !important;
+        margin-bottom: 22px !important;
+        font-size: 12px !important;
+      }
+
+      /* ✅ overview 모바일 1컬럼 */
+      .overview{
+        grid-template-columns: 1fr !important;
+        row-gap: 12px !important;
+        column-gap: 0 !important;
+      }
+
+      .overview-label{
+        padding-top: 0 !important;
+        font-size: 14px !important;
+      }
+
+      .overview-body{
+        font-size: 14px !important;
+        line-height: 1.85 !important;
+      }
+
+      .gallery{
+        gap: 16px !important;
+      }
+
+      footer.footer,
+      .footer{
+        padding: 12px 16px 22px !important;
+      }
+
+      .footer-top{
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 12px !important;
+        padding: 10px 0 14px !important;
+      }
+
+      .footer-left{
+        padding-left: 0 !important;
+      }
+
+      .footer-nav{
+        flex-wrap: wrap !important;
+        gap: 10px 16px !important;
+      }
+
+      .footer-right{
+        margin-left: 0 !important;
+        justify-content: flex-start !important;
+      }
+
+      .footer-info{
+        margin-top: 18px !important;
+        font-size: 12px !important;
+      }
+
+      .footer-contact{
+        gap: 6px 10px !important;
+        font-size: 12px !important;
+      }
+
+      .copyright{
+        font-size: 11px !important;
+      }
+    }
   </style>
 </head>
 
@@ -414,12 +497,12 @@
         </div>
       </div>
 
-      <!-- 3) MAIN IMAGE (서울로 이미지로 교체) -->
+      <!-- 3) MAIN IMAGE -->
       <div class="hero-shot">
         <img src="images/projects_coex_2025.png" alt="Coex Media Art 2025">
       </div>
 
-      <!-- 4) PROJECT OVERVIEW (좌 라벨 + 우 본문) -->
+      <!-- 4) PROJECT OVERVIEW -->
       <div class="overview">
         <div class="overview-label">PROJECT OVERVIEW</div>
 
