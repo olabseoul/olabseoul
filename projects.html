@@ -281,48 +281,150 @@
       text-align: center;
     }
 @media (max-width: 768px){
+
+  /* ===== HEADER (겹침 해결) ===== */
   header{
-    padding: 0 20px !important;
+    padding: 0 16px !important;
     height: 64px !important;
   }
 
+  .logo img{
+    height: 20px !important;
+  }
+
+  /* 모바일에서 가운데 고정 nav 해제 -> 겹침 방지 */
   nav{
-    gap: 18px !important;
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    display: flex !important;
+    gap: 12px !important;
+    margin: 0 10px !important;
   }
 
   nav a{
-    font-size: 13px !important;
-    letter-spacing: 0.6px !important;
+    font-size: 12px !important;
+    letter-spacing: 0.5px !important;
+    white-space: nowrap !important;
   }
 
   .contact{
-    font-size: 14px !important;
+    font-size: 12px !important;
+    letter-spacing: 0.5px !important;
+    white-space: nowrap !important;
   }
 
-  /* 페이지 컨테이너 공통 폭 */
-  .page-wrap,
-  .contact-wrap{
-    width: calc(100% - 40px) !important;
+  /* ===== PAGE LAYOUT ===== */
+  main{
+    padding-top: 96px !important;   /* 헤더 64px 고려 */
+    padding-bottom: 72px !important;
+  }
+
+  .projects-wrap{
+    width: calc(100% - 32px) !important;
     max-width: 100% !important;
   }
 
-  /* 큰 제목 줄이기 */
   .page-title{
-    font-size: 34px !important;
-    margin: 12px 0 28px !important;
+    font-size: 32px !important;
+    margin: 12px 0 22px !important;
   }
 
-  /* 푸터 패딩 줄이기 */
+  /* ===== PROJECT LIST ===== */
+  .project-list{
+    gap: 20px !important;
+  }
+
+  .project-thumb{
+    border-radius: 10px !important;
+  }
+
+  /* 썸네일 이미지 자체는 비율 유지 + 꽉 차게 */
+  .project-thumb img{
+    width: 100% !important;
+    height: auto !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  /* ===== OVERLAY (모바일용 크기/줄바꿈/가독성) ===== */
+  .project-overlay{
+    top: 12px !important;
+    left: 12px !important;
+    right: 12px !important;
+    max-width: none !important;
+  }
+
+  .project-overlay::before{
+    inset: -14px -14px -14px -14px !important;
+    background: linear-gradient(180deg, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.0) 75%) !important;
+  }
+
+  .project-overlay .meta-top{
+    font-size: 13px !important;
+    line-height: 1.25 !important;
+    margin-bottom: 6px !important;
+    letter-spacing: 0.01em !important;
+    word-break: keep-all !important;
+  }
+
+  .project-overlay .meta-sub{
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    color: rgba(255,255,255,0.75) !important;
+    word-break: keep-all !important;
+  }
+
+  /* ===== MORE ===== */
+  .more-wrap{
+    margin: 28px 0 0 !important;
+  }
+
+  .more-btn{
+    font-size: 12px !important;
+    gap: 8px !important;
+  }
+
+  /* ===== FOOTER (모바일 정리) ===== */
   .footer{
-    padding: 10px 20px 24px !important;
-  }
-
-  .footer-nav a{
-    margin-right: 18px !important;
+    padding: 12px 16px 22px !important;
   }
 
   .footer-left{
     padding-left: 0 !important;
+    margin-bottom: 8px !important;
+  }
+
+  .footer-nav{
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px 16px !important;
+    margin: 10px 0 10px !important;
+  }
+
+  .footer-nav a{
+    margin-right: 0 !important;
+    font-size: 12px !important;
+  }
+
+  .footer-right{
+    margin-left: 0 !important;
+    justify-content: flex-start !important;
+    padding-top: 6px !important;
+  }
+
+  .footer-info{
+    margin-top: 22px !important;
+    font-size: 12px !important;
+  }
+
+  .footer-contact{
+    gap: 6px 10px !important;
+    font-size: 12px !important;
+  }
+
+  .copyright{
+    font-size: 11px !important;
   }
 }
 
