@@ -310,22 +310,52 @@
     }
 
     /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 900px) {
-      .overview { grid-template-columns: 1fr; row-gap: 14px; }
-      .overview-label { padding-top: 0; }
-    }
+@media (max-width: 768px){
+  header{
+    padding: 0 20px !important;
+    height: 64px !important;
+  }
 
-    @media (max-width: 768px) {
-      header { padding: 0 20px; }
-      nav { gap: 24px; }
+  nav{
+    gap: 18px !important;
+  }
 
-      .detail-wrap { width: 88%; }
+  nav a{
+    font-size: 13px !important;
+    letter-spacing: 0.6px !important;
+  }
 
-      footer.footer { padding: 10px 20px 24px; }
-      .footer-top { flex-direction: column; gap: 16px; align-items: flex-start; }
-      .footer-left { padding-left: 0; }
-      .footer-nav { gap: 16px; flex-wrap: wrap; }
-    }
+  .contact{
+    font-size: 14px !important;
+  }
+
+  /* 페이지 컨테이너 공통 폭 */
+  .page-wrap,
+  .contact-wrap{
+    width: calc(100% - 40px) !important;
+    max-width: 100% !important;
+  }
+
+  /* 큰 제목 줄이기 */
+  .page-title{
+    font-size: 34px !important;
+    margin: 12px 0 28px !important;
+  }
+
+  /* 푸터 패딩 줄이기 */
+  .footer{
+    padding: 10px 20px 24px !important;
+  }
+
+  .footer-nav a{
+    margin-right: 18px !important;
+  }
+
+  .footer-left{
+    padding-left: 0 !important;
+  }
+}
+
   </style>
 </head>
 
