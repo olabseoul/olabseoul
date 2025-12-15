@@ -487,6 +487,85 @@
       .footer-contact{ gap: 6px 10px !important; font-size: 12px !important; }
       .copyright{ font-size: 11px !important; }
     }
+	  /* =========================
+   MOBILE ONLY - FOOTER FIX
+   ========================= */
+@media (max-width: 768px){
+
+  .footer{
+    padding: 14px 16px 22px !important;
+  }
+
+  /* 푸터 내부 요소들을 세로로 쌓기 */
+  .footer-left,
+  .footer-nav,
+  .footer-right,
+  .footer-info{
+    width: 100% !important;
+  }
+
+  .footer-left{
+    padding-left: 0 !important;
+    justify-content: flex-start !important;
+    margin: 0 0 10px 0 !important;
+  }
+
+  .footer-logo-img{
+    height: 14px !important;
+    transform: none !important;   /* 모바일에서 로고 내려가는거 제거 */
+  }
+
+  .footer-nav{
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px 16px !important;
+    margin: 6px 0 12px 0 !important;
+    justify-content: flex-start !important;
+  }
+
+  .footer-nav a{
+    margin-right: 0 !important;
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+  }
+
+  .footer-right{
+    margin-left: 0 !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    padding: 2px 0 10px 0 !important;
+  }
+
+  .footer-right .icon{
+    margin-left: 0 !important;
+  }
+
+  .footer-info{
+    margin-top: 14px !important;
+    font-size: 12px !important;
+    text-align: left !important;  /* 가운데정렬이 싫으면 left가 더 깔끔 */
+  }
+
+  .footer-contact{
+    justify-content: flex-start !important;
+    gap: 6px 10px !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* 아이폰에서 전화번호가 파란 링크로 보이는 거 방지 */
+  .footer a,
+  .footer a:visited{
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+
+  .copyright{
+    margin-top: 8px !important;
+    font-size: 11px !important;
+    text-align: left !important;
+  }
+}
+
   </style>
 </head>
 
