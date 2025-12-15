@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OLAB | MEDIA FACADE & INTERACTIVE ART</title>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
 
     body {
@@ -70,7 +66,6 @@
       letter-spacing: 1px;
       transition: opacity 0.3s;
     }
-
     nav a:hover { opacity: 0.6; }
 
     .contact {
@@ -79,6 +74,7 @@
       text-decoration: none;
       color: #fff;
       cursor: pointer;
+      white-space: nowrap;
     }
 
     /* ---------- MAIN SECTION ---------- */
@@ -223,7 +219,6 @@
       font-weight: 600;
       transition: all 0.3s ease;
     }
-
     .who-box:hover { background-color: rgba(255, 255, 255, 0.1); }
 
     /* ========== WORKS SECTION ========== */
@@ -236,7 +231,7 @@
       height: 100vh;
       position: relative;
       overflow: hidden;
-      padding-top: 80px; /* 헤더 높이 고려 */
+      padding-top: 80px;
     }
 
     .slider {
@@ -249,37 +244,24 @@
 
     .slides {
       display: flex;
-      width: 500%;              /* 5장 = 500% */
+      width: 500%;
       animation: slide 16s infinite;
     }
 
-    .slide {
-      flex: 0 0 20%;            /* 5장 = 한 장 20% */
-      transition: transform 1s ease;
-    }
-
-    .slide img {
-      width: 100%;
-      display: block;
-      object-fit: cover;
-    }
+    .slide { flex: 0 0 20%; transition: transform 1s ease; }
+    .slide img { width: 100%; display: block; object-fit: cover; }
 
     @keyframes slide {
       0%   { transform: translateX(0%); }
       16%  { transform: translateX(0%); }
-
       20%  { transform: translateX(-20%); }
       36%  { transform: translateX(-20%); }
-
       40%  { transform: translateX(-40%); }
       56%  { transform: translateX(-40%); }
-
       60%  { transform: translateX(-60%); }
       76%  { transform: translateX(-60%); }
-
       80%  { transform: translateX(-80%); }
       96%  { transform: translateX(-80%); }
-
       100% { transform: translateX(0%); }
     }
 
@@ -291,7 +273,7 @@
       display: flex;
       justify-content: space-between;
       transform: translateY(-50%);
-      pointer-events: none; /* 표시만 */
+      pointer-events: none;
     }
 
     .navigation .prev,
@@ -321,7 +303,6 @@
       font-weight: 600;
       transition: opacity 0.3s ease;
     }
-
     .works-title a:hover { opacity: 0.7; }
 
     /* ---------- JOIN SECTION ---------- */
@@ -365,7 +346,6 @@
       font-weight: 600;
       transition: background 0.3s ease;
     }
-
     .join-btn:hover { background-color: #595959; }
 
     /* ---------- FOOTER ---------- */
@@ -376,11 +356,7 @@
       padding: 10px 80px;
     }
 
-    .footer-logo {
-      display: inline-block;
-      text-decoration: none;
-    }
-
+    .footer-logo { display: inline-block; text-decoration: none; }
     .footer-logo-img {
       height: 16px;
       display: block;
@@ -388,11 +364,7 @@
       transition: transform 0.18s ease;
     }
 
-    .footer-left {
-      padding-left: 30px;
-      display: flex;
-      align-items: center;
-    }
+    .footer-left { padding-left: 30px; display: flex; align-items: center; }
 
     .footer-nav a{
       text-decoration: none;
@@ -400,6 +372,7 @@
       font-weight: 600;
       margin-right: 40px;
       transition: color 0.3s;
+      white-space: nowrap;
     }
 
     .footer-right .icon {
@@ -415,218 +388,109 @@
     }
 
     .footer-right .icon svg {
-      width: 18px;
-      height: 18px;
-      display: block;
-      fill: currentColor;
+      width: 18px; height: 18px; display: block; fill: currentColor;
     }
 
-    .footer-right .icon:hover {
-      color: #fff;
-      transform: scale(1.1);
-    }
+    .footer-right .icon:hover { color: #fff; transform: scale(1.1); }
+    .footer-right { display: flex; gap: 0.1px; margin-left: auto; justify-content: flex-end; }
 
-    .footer-right {
-      display: flex;
-      gap: 0.1px;
-      margin-left: auto;
-      justify-content: flex-end;
-    }
-
-    .footer-info {
-      text-align: center;
-      margin-top: 60px;
-      font-size: 14px;
-      color: #666;
-    }
-
-    .footer-contact {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 2px;
-    }
-
+    .footer-info { text-align: center; margin-top: 60px; font-size: 14px; color: #666; }
+    .footer-contact { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 2px; }
     .footer-contact .divider { color: #bbb; }
     .email, .tel, .email2 { font-weight: 500; color: #bbb; }
+    .copyright { font-size: 13px; color: #555; text-align: center; }
 
-    .copyright {
-      font-size: 13px;
-      color: #555;
-      text-align: center;
+    /* =======================
+       MOBILE ONLY (여기만)
+    ======================= */
+    @media (max-width: 768px){
+      header{
+        padding: 0 14px !important;
+        height: 64px !important;
+      }
+
+      .logo img{ height: 20px !important; }
+
+      /* 핵심: 모바일에서 absolute nav 제거 + 폭 안에 들어오게 */
+      nav{
+        position: relative !important;
+        left: auto !important;
+        transform: none !important;
+        display: flex !important;
+        gap: 14px !important;
+        margin: 0 !important;
+      }
+
+      nav a{
+        font-size: 12px !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
+      }
+
+      .contact{
+        font-size: 12px !important;
+        letter-spacing: 0.5px !important;
+      }
+
+      /* indicator는 모바일에서 숨김 */
+      .indicator{ display: none !important; }
+
+      /* 메인 로고 조금 키우기 */
+      .main-content img{
+        width: 70vw !important;
+        max-width: none !important;
+      }
+
+      /* ABOUT/WHO 텍스트 축소 */
+      .about-text{ width: 92% !important; }
+      .about-text h2{ font-size: 26px !important; margin-bottom: 8px !important; }
+      .about-text h4{ font-size: 16px !important; margin-bottom: 18px !important; line-height: 1.35 !important; }
+      .about-btn{ font-size: 14px !important; }
+
+      .who-text{ width: 92% !important; }
+      .who-text h2{ font-size: 22px !important; margin-bottom: 12px !important; }
+      .who-text h4{ font-size: 13px !important; margin-bottom: 16px !important; line-height: 1.5 !important; }
+
+      .who-boxes{ gap: 10px !important; }
+      .who-box{ padding: 10px 14px !important; border-radius: 14px !important; font-size: 12px !important; }
+
+      /* WORKS */
+      #works{ padding-top: 64px !important; }
+      .slider{ width: 92% !important; border-radius: 8px !important; }
+      .navigation{ width: 92% !important; }
+      .navigation .prev, .navigation .next{ font-size: 2rem !important; padding: 8px 10px !important; }
+      .works-title{ font-size: 16px !important; margin-top: 14px !important; }
+
+      /* JOIN */
+      .scroll-line{ height: 120px !important; margin-bottom: 16px !important; }
+      .join-btn{ padding: 12px 28px !important; font-size: 14px !important; }
+
+      /* FOOTER */
+      .footer{ padding: 12px 16px 22px !important; }
+      .footer-left{ padding-left: 0 !important; margin-bottom: 8px !important; }
+
+      .footer-nav{
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 10px 16px !important;
+        margin: 10px 0 10px !important;
+      }
+      .footer-nav a{ margin-right: 0 !important; font-size: 12px !important; }
+
+      .footer-right{
+        margin-left: 0 !important;
+        justify-content: flex-start !important;
+        padding-top: 6px !important;
+      }
+
+      .footer-info{ margin-top: 22px !important; font-size: 12px !important; }
+      .footer-contact{ gap: 6px 10px !important; font-size: 12px !important; }
+      .copyright{ font-size: 11px !important; }
     }
+  </style>
+</head>
 
-    /* ======================================================
-       MOBILE ONLY (여기만 수정/강화)
-       - 데스크톱은 절대 안 건드림
-    ====================================================== */
-@media (max-width: 768px){
-
-  /* ===== Header: 모바일에서 겹침 방지 + 폰트 축소 ===== */
-  header{
-    padding: 0 16px !important;
-    height: 64px !important;
-  }
-
-  .logo img{
-    height: 20px !important;
-  }
-
-  /* 가운데 고정 nav가 모바일에서 겹치기 쉬워서 static으로 전환 */
-  nav{
-    position: static !important;
-    left: auto !important;
-    transform: none !important;
-    display: flex !important;
-    gap: 12px !important;
-    margin: 0 10px !important;
-  }
-
-  nav a{
-    font-size: 12px !important;
-    letter-spacing: 0.5px !important;
-    white-space: nowrap !important;
-  }
-
-  .contact{
-    font-size: 12px !important;
-    letter-spacing: 0.5px !important;
-    white-space: nowrap !important;
-  }
-
-  /* ===== Index: 메인 로고 크게 ===== */
-  .main-content img{
-    width: 70vw !important;
-    max-width: none !important;
-  }
-
-  /* ===== Indicator: 모바일에서는 숨김(겹침/가독성 문제) ===== */
-  .indicator{
-    display: none !important;
-  }
-
-  /* ===== ABOUT: 텍스트 축소 ===== */
-  .about-text{
-    width: 92% !important;
-  }
-  .about-text h2{
-    font-size: 26px !important;
-    margin-bottom: 8px !important;
-  }
-  .about-text h4{
-    font-size: 16px !important;
-    margin-bottom: 18px !important;
-    line-height: 1.35 !important;
-  }
-  .about-btn{
-    font-size: 14px !important;
-  }
-
-  /* ===== WHO: 텍스트/박스 축소 ===== */
-  .who-text{
-    width: 92% !important;
-  }
-  .who-text h2{
-    font-size: 22px !important;
-    margin-bottom: 12px !important;
-  }
-  .who-text h4{
-    font-size: 13px !important;
-    margin-bottom: 16px !important;
-    line-height: 1.5 !important;
-  }
-
-  .who-boxes{
-    gap: 10px !important;
-  }
-  .who-box{
-    padding: 10px 14px !important;
-    border-radius: 14px !important;
-    font-size: 12px !important;
-  }
-
-  /* ===== WORKS: 슬라이더/화살표/타이틀 축소 ===== */
-  #works{
-    padding-top: 64px !important;
-  }
-
-  .slider{
-    width: 92% !important;
-    border-radius: 8px !important;
-  }
-
-  .navigation{
-    width: 92% !important;
-  }
-
-  .navigation .prev,
-  .navigation .next{
-    font-size: 2rem !important;
-    padding: 8px 10px !important;
-  }
-
-  .works-title{
-    font-size: 16px !important;
-    margin-top: 14px !important;
-  }
-
-  /* ===== JOIN: 버튼 축소 ===== */
-  .scroll-line{
-    height: 120px !important;
-    margin-bottom: 16px !important;
-  }
-
-  .join-btn{
-    padding: 12px 28px !important;
-    font-size: 14px !important;
-    border-radius: 10px !important;
-  }
-
-  /* ===== Footer: 모바일 정리 ===== */
-  .footer{
-    padding: 12px 16px 22px !important;
-  }
-
-  .footer-left{
-    padding-left: 0 !important;
-    margin-bottom: 8px !important;
-  }
-
-  .footer-nav{
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 10px 16px !important;
-    margin: 10px 0 10px !important;
-  }
-
-  .footer-nav a{
-    margin-right: 0 !important;
-    font-size: 12px !important;
-  }
-
-  .footer-right{
-    margin-left: 0 !important;
-    justify-content: flex-start !important;
-    padding-top: 6px !important;
-  }
-
-  .footer-info{
-    margin-top: 22px !important;
-    font-size: 12px !important;
-  }
-
-  .footer-contact{
-    gap: 6px 10px !important;
-    font-size: 12px !important;
-  }
-
-  .copyright{
-    font-size: 11px !important;
-  }
-}
-
-
+<body>
   <!-- HEADER -->
   <header>
     <div class="logo">
@@ -695,21 +559,11 @@
   <section id="works">
     <div class="slider">
       <div class="slides">
-        <a href="project-chungbuk-2024.html" class="slide">
-          <img src="images/work1.png" alt="Chungbuk 2024">
-        </a>
-        <a href="project-chungbuk-2025.html" class="slide">
-          <img src="images/work2.png" alt="Chungbuk 2025">
-        </a>
-        <a href="project-seoullo-2025.html" class="slide">
-          <img src="images/work3.png" alt="seoullo 2025">
-        </a>
-        <a href="project-jeonju-2025.html" class="slide">
-          <img src="images/work4.png" alt="jeonju 2025">
-        </a>
-        <a href="project-gmap-2025.html" class="slide">
-          <img src="images/work5.png" alt="g-map2025">
-        </a>
+        <a href="project-chungbuk-2024.html" class="slide"><img src="images/work1.png" alt="Chungbuk 2024"></a>
+        <a href="project-chungbuk-2025.html" class="slide"><img src="images/work2.png" alt="Chungbuk 2025"></a>
+        <a href="project-seoullo-2025.html" class="slide"><img src="images/work3.png" alt="seoullo 2025"></a>
+        <a href="project-jeonju-2025.html" class="slide"><img src="images/work4.png" alt="jeonju 2025"></a>
+        <a href="project-gmap-2025.html" class="slide"><img src="images/work5.png" alt="g-map2025"></a>
       </div>
     </div>
 
@@ -718,9 +572,7 @@
       <div class="next">&#10095;</div>
     </div>
 
-    <h3 class="works-title">
-      <a href="projects.html">▶ Works</a>
-    </h3>
+    <h3 class="works-title"><a href="projects.html">▶ Works</a></h3>
   </section>
 
   <!-- JOIN SECTION -->
@@ -749,45 +601,13 @@
     <div class="footer-right">
       <a href="https://www.instagram.com/olab_seoul" target="_blank" rel="noopener noreferrer" class="icon" aria-label="instagram">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img" aria-hidden="true">
-          <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 
-             370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 186.6c-39.6 
-             0-71.7-32.1-71.7-71.7s32.1-71.7 71.7-71.7 71.7 32.1 
-             71.7 71.7-32.1 71.7-71.7 71.7zm146.4-194.3c0 
-             14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 
-             27-27 27 12.1 27 27zm76.1 27.2c-.2-35.7-9.9-67.3-36.3-93.7s-58-36.1-93.7-36.3c-37 
-             -.2-147.3-.2-184.3 0-35.7.2-67.3 9.9-93.7 
-             36.3s-36.1 58-36.3 93.7c-.2 37-.2 147.3 
-             0 184.3.2 35.7 9.9 67.3 36.3 
-             93.7s58 36.1 93.7 36.3c37 
-             .2 147.3.2 184.3 0 35.7-.2 
-             67.3-9.9 93.7-36.3s36.1-58 
-             36.3-93.7c.2-37.1.2-147.4 
-             0-184.3zm-48.5 224c-7.8 
-             19.6-22.9 34.7-42.6 
-             42.6-29.5 11.7-99.5 9-132.4 
-             9s-102.9 2.6-132.4-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.4s-2.6-102.9 
-             9-132.4c7.8-19.6 22.9-34.7 
-             42.6-42.6 29.5-11.7 99.5-9 
-             132.4-9s102.9-2.6 132.4 
-             9c19.6 7.8 34.7 22.9 
-             42.6 42.6 11.7 29.5 9 
-             99.5 9 132.4s2.7 
-             102.9-9 132.4z"/>
+          <path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 186.6c-39.6 0-71.7-32.1-71.7-71.7s32.1-71.7 71.7-71.7 71.7 32.1 71.7 71.7-32.1 71.7-71.7 71.7zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-.2-35.7-9.9-67.3-36.3-93.7s-58-36.1-93.7-36.3c-37-.2-147.3-.2-184.3 0-35.7.2-67.3 9.9-93.7 36.3s-36.1 58-36.3 93.7c-.2 37-.2 147.3 0 184.3.2 35.7 9.9 67.3 36.3 93.7s58 36.1 93.7 36.3c37 .2 147.3.2 184.3 0 35.7-.2 67.3-9.9 93.7-36.3s36.1-58 36.3-93.7c.2-37.1.2-147.4 0-184.3z"/>
         </svg>
       </a>
 
       <a href="https://www.youtube.com/@olab_seoul" target="_blank" rel="noopener noreferrer" class="icon" aria-label="youtube">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" role="img" aria-hidden="true">
-          <path fill="currentColor" d="M549.7 124.1c-6.3-23.7-24.9-42.4-48.4-48.7C456.4 
-             64 288 64 288 64s-168.4 0-213.3 11.4c-23.6 
-             6.3-42.1 25-48.4 48.7C15 168.1 15 
-             256 15 256s0 87.9 11.3 131.9c6.3 
-             23.7 24.9 42.4 48.4 48.7C119.6 
-             448 288 448 288 448s168.4 
-             0 213.3-11.4c23.6-6.3 42.1-25 
-             48.4-48.7C561 343.9 561 256 
-             561 256s0-87.9-11.3-131.9zM232 
-             334.7V177.3l142.7 78.7L232 334.7z"/>
+          <path fill="currentColor" d="M549.7 124.1c-6.3-23.7-24.9-42.4-48.4-48.7C456.4 64 288 64 288 64s-168.4 0-213.3 11.4c-23.6 6.3-42.1 25-48.4 48.7C15 168.1 15 256 15 256s0 87.9 11.3 131.9c6.3 23.7 24.9 42.4 48.4 48.7C119.6 448 288 448 288 448s168.4 0 213.3-11.4c23.6-6.3 42.1-25 48.4-48.7C561 343.9 561 256 561 256s0-87.9-11.3-131.9zM232 334.7V177.3l142.7 78.7L232 334.7z"/>
         </svg>
       </a>
     </div>
@@ -805,13 +625,11 @@
   </footer>
 
   <script>
-    // 섹션/인디케이터 활성화
     const sections = document.querySelectorAll("section");
     const dots = document.querySelectorAll(".indicator a");
 
     window.addEventListener("scroll", () => {
       let current = "";
-
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
         if (scrollY >= sectionTop - window.innerHeight / 2) {
@@ -826,6 +644,5 @@
       });
     });
   </script>
-
 </body>
 </html>
