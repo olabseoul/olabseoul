@@ -485,6 +485,12 @@
        - 데스크톱 절대 유지
     ====================================================== */
     @media (max-width: 768px) {
+		/* (모바일만) 배경 이미지 잘림 방지: 전체 보이기 */
+.bg-img{
+  object-fit: contain !important;
+  background: #000 !important;
+}
+
 
       /* ===== Header: 모바일 겹침 방지 ===== */
       header{
@@ -563,18 +569,25 @@
         line-height: 1.75 !important;
       }
 
-      /* ===== VISION: 도형 축소/정렬 ===== */
-      .vision-shapes{
-        margin: 18px 0 16px !important;
-        gap: 10px !important;
-      }
-      .vision-shape{
-        width: 140px !important;
-        height: 140px !important;
-        border-radius: 34px !important;
-      }
-      .vision-shape + .vision-shape{ margin-left: -6px !important; }
-      .vision-shape span{ font-size: 14px !important; }
+     /* (모바일만) VISION 도형 더 작게 + 간격 */
+.vision-shapes{
+  margin: 18px 0 34px !important; /* 아래(본문과) 간격 늘림 */
+  gap: 12px !important;
+}
+
+.vision-shape{
+  width: 110px !important;
+  height: 110px !important;
+  border-radius: 26px !important;
+}
+
+.vision-shape + .vision-shape{
+  margin-left: -4px !important;
+}
+
+.vision-shape span{
+  font-size: 12px !important;
+}
 
       /* ===== WHAT WE DO: 세로 스택 + 폰트 축소 ===== */
       .what-container{
@@ -722,7 +735,22 @@
         color: inherit !important;
         text-decoration: none !important;
       }
-    }
+    /* (모바일만) WHO / VISION 왼쪽 정렬 */
+#about-who .content-inner,
+#about-vision .content-inner{
+  text-align: left !important;
+  align-items: flex-start !important;
+}
+/* (모바일만) CONTENTS 세로선 제거 */
+.contents-divider{
+  display: none !important;
+}
+/* (모바일만) INTRO 세로선 제거 */
+.intro-line{
+  display: none !important;
+}
+
+	  
   </style>
 </head>
 
