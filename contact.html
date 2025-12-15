@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OLAB | CONTACT</title>
+
+  <style>
+	  
+    @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background: #000;
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 80px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .logo img {
+      height: 24px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    nav {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 60px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 1px;
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover { opacity: 0.6; }
+
+    .contact {
+      font-weight: 800;
+      font-size: 17px;
+      text-decoration: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* ---------- PAGE WRAP ---------- */
+    main {
+      width: 100%;
+      padding-top: 140px;
+      padding-bottom: 120px;
+    }
+
+    .contact-wrap {
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      font-size: clamp(44px, 4.2vw, 72px);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin: 18px 0 52px;
+    }
+
+    /* ---------- FORM ---------- */
+    form.contact-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .label {
+      font-size: clamp(13px, 1.05vw, 16px);
+      font-weight: 600;
+      color: rgba(255,255,255,0.92);
+      letter-spacing: 0.01em;
+    }
+
+    .input,
+    .textarea {
+      width: 100%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 2px;
+      color: #fff;
+      padding: 16px 18px;
+      font-size: clamp(14px, 1.1vw, 18px);
+      outline: none;
+      transition: border-color .2s ease, background .2s ease;
+    }
+
+    .input::placeholder,
+    .textarea::placeholder { color: rgba(255,255,255,0.35); }
+
+    .input:focus,
+    .textarea:focus {
+      border-color: rgba(255,255,255,0.28);
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.06));
+    }
+
+    .textarea {
+      min-height: 150px;
+      resize: vertical;
+      line-height: 2.0;
+      letter-spacing: 0.03em;
+    }
+
+    /* ---------- CHECKBOX ROW ---------- */
+    .check-area { margin-top: 8px; }
+
+    .check-title {
+      font-size: clamp(13px, 1.05vw, 16px);
+      font-weight: 600;
+      color: rgba(255,255,255,0.92);
+      margin-bottom: 12px;
+    }
+
+    .checks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .check {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      font-size: clamp(12px, 0.95vw, 14px);
+      color: rgba(255,255,255,0.92);
+    }
+
+    .check input {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 1.6px solid rgba(255,255,255,0.85);
+      background: transparent;
+      display: inline-block;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .check input:checked::after {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 1px;
+      width: 6px;
+      height: 10px;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(45deg);
+    }
+
+    /* ---------- SUBMIT ---------- */
+    .submit-wrap { margin-top: 20px; }
+
+    .submit-btn {
+      width: 100%;
+      background: #fff;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      padding: 18px 16px;
+      font-size: clamp(14px, 1.05vw, 16px);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+    .submit-btn:hover { opacity: .95; transform: translateY(-1px); }
+    .submit-btn:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    /* ---------- MODAL (SUCCESS POPUP) ---------- */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 9999;
+    }
+    .modal.show { display: flex; }
+
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.68);
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-card {
+      position: relative;
+      width: min(560px, 92vw);
+      border-radius: 14px;
+      background: rgba(10,10,10,0.92);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      padding: 26px 24px 22px;
+      animation: pop .16s ease-out;
+    }
+
+    @keyframes pop {
+      from { transform: translateY(6px) scale(0.99); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    .modal-title {
+      font-size: clamp(18px, 1.4vw, 22px);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 10px;
+    }
+
+    .modal-btn {
+      background: #fff;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.9);
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .15s ease, background .15s ease, opacity .15s ease;
+    }
+    .modal-close:hover { transform: scale(1.02); background: rgba(255,255,255,0.10); }
+/* ---------- FOOTER ---------- */
+    .footer {
+      background-color: #202020;
+      color: #888;
+      font-family: "Pretendard", sans-serif;
+      padding: 10px 80px;
+    }
+
+    .footer-logo {
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .footer-logo-img {
+      height: 16px;
+      display: block;
+      transform: translateY(15px);
+      transition: transform 0.18s ease;
+    }
+
+    .footer-left {
+      padding-left: 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-nav a{
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 600;
+      margin-right: 40px;
+      transition: color 0.3s;
+    }
+
+    .footer-right .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      margin-left: 16px;
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .footer-right .icon svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+      fill: currentColor;
+    }
+
+    .footer-right .icon:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 0.1px;
+      margin-left: auto;
+      justify-content: flex-end;
+    }
+
+    .footer-info {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .footer-contact {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+    }
+
+    .footer-contact .divider { color: #bbb; }
+    .email, .tel, .email2 { font-weight: 500; color: #bbb; }
+
+    .copyright {
+      font-size: 13px;
+      color: #555;
+      text-align: center;
+    }
+@media (max-width: 768px) {
+  header { padding: 0 20px; }
+  nav { gap: 24px; }
+  .contact-wrap { width: 88%; }
+  footer.footer { padding: 10px 20px 24px; }
+  .footer-top { flex-direction: column; gap: 16px; align-items: flex-start; }
+  .footer-left { padding-left: 0; }
+  .footer-nav { gap: 16px; flex-wrap: wrap; }
+  .checks { gap: 18px 26px; }
+}
+  </style>
+</head>
+
+<body>
+	
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/olab_logo.png" alt="OLAB Logo" />
+      </a>
+    </div>
+
+    <nav>
+      <a href="about.html">ABOUT</a>
+      <a href="projects.html">PROJECTS</a>
+      <a href="gallery.html">GALLERY</a>
+    </nav>
+
+    <a href="contact.html" class="contact">CONTACT</a>
+  </header>
+
+  <main>
+    <div class="contact-wrap">
+      <h1 class="page-title">CONTACT</h1>
+
+      <form
+        id="contactForm"
+        class="contact-form"
+        action="https://formspree.io/f/mnnewlga"
+        method="POST"
+      >
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        <input type="hidden" name="_subject" value="OLAB Contact Form" />
+
+        <div class="field">
+          <label class="label" for="company">회사/단체명</label>
+          <input class="input" id="company" name="company" type="text" autocomplete="organization" />
+        </div>
+
+        <div class="field">
+          <label class="label" for="position">직책</label>
+          <input class="input" id="position" name="position" type="text" autocomplete="organization-title" />
+        </div>
+
+        <div class="field">
+          <label class="label" for="email">이메일*</label>
+          <input class="input" id="email" name="email" type="email" required autocomplete="email" />
+        </div>
+
+        <div class="field">
+          <label class="label" for="name">담당자명</label>
+          <input class="input" id="name" name="name" type="text" autocomplete="name" />
+        </div>
+
+        <div class="field">
+          <label class="label" for="phone">연락처*</label>
+          <input class="input" id="phone" name="phone" type="tel" required autocomplete="tel" />
+        </div>
+
+        <div class="field">
+          <label class="label" for="ref">유입경로</label>
+          <input class="input" id="ref" name="ref" type="text" />
+        </div>
+
+        <div class="check-area">
+          <div class="check-title">프로젝트 종류(중복선택 가능)</div>
+          <div class="checks">
+            <label class="check">
+              <input type="checkbox" name="project_type[]" value="MEDIA FACADE" />
+              <span>MEDIA FACADE</span>
+            </label>
+
+            <label class="check">
+              <input type="checkbox" name="project_type[]" value="FILM" />
+              <span>FILM</span>
+            </label>
+
+            <label class="check">
+              <input type="checkbox" name="project_type[]" value="INTERACTIVE ART" />
+              <span>INTERACTIVE ART</span>
+            </label>
+
+            <label class="check">
+              <input type="checkbox" name="project_type[]" value="OTHER" />
+              <span>OTHER</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label" for="schedule">일정</label>
+          <input class="input" id="schedule" name="schedule" type="text" />
+        </div>
+
+        <div class="field">
+          <label class="label" for="detail">상세내용*</label>
+          <textarea class="textarea" id="detail" name="message" required></textarea>
+        </div>
+
+        <div class="field">
+          <label class="label" for="attach">첨부파일(구글 드라이브 링크)</label>
+          <textarea class="textarea" id="attach" name="attachment_link"></textarea>
+        </div>
+
+        <div class="submit-wrap">
+          <button id="submitBtn" class="submit-btn" type="submit">작성 완료</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- SUCCESS POPUP -->
+  <div id="successModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close="1"></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" type="button" aria-label="닫기" data-close="1">×</button>
+      <div id="modalTitle" class="modal-title">접수가 완료되었습니다.</div>
+      <div class="modal-actions">
+        <button class="modal-btn" type="button" data-close="1">확인</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-left">
+        <a href="index.html" class="footer-logo">
+          <img src="images/olab_logo.png" alt="OLAB Logo" class="footer-logo-img">
+        </a>
+      </div>
+
+      <nav class="footer-nav">
+        <a href="about.html">ABOUT</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+
+      <div class="footer-right">
+        <a href="https://www.instagram.com/olab_seoul" target="_blank" rel="noopener noreferrer" class="icon" aria-label="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img" aria-hidden="true">
+            <path fill="currentColor"
+              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 186.6c-39.6 0-71.7-32.1-71.7-71.7s32.1-71.7 71.7-71.7 71.7 32.1 71.7 71.7-32.1 71.7-71.7 71.7zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-.2-35.7-9.9-67.3-36.3-93.7s-58-36.1-93.7-36.3c-37-.2-147.3-.2-184.3 0-35.7.2-67.3 9.9-93.7 36.3s-36.1 58-36.3 93.7c-.2 37-.2 147.3 0 184.3.2 35.7 9.9 67.3 36.3 93.7s58 36.1 93.7 36.3c37 .2 147.3.2 184.3 0 35.7-.2 67.3-9.9 93.7-36.3s36.1-58 36.3-93.7c.2-37.1.2-147.4 0-184.3zm-48.5 224c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.4 9s-102.9 2.6-132.4-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.4s-2.6-102.9 9-132.4c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.4-9s102.9-2.6 132.4 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.4s2.7 102.9-9 132.4z" />
+          </svg>
+        </a>
+
+        <a href="https://www.youtube.com/@olab_seoul" target="_blank" rel="noopener noreferrer" class="icon" aria-label="YouTube">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" role="img" aria-hidden="true">
+            <path fill="currentColor"
+              d="M549.7 124.1c-6.3-23.7-24.9-42.4-48.4-48.7C456.4 64 288 64 288 64s-168.4 0-213.3 11.4c-23.6 6.3-42.1 25-48.4 48.7C15 168.1 15 256 15 256s0 87.9 11.3 131.9c6.3 23.7 24.9 42.4 48.4 48.7C119.6 448 288 448 288 448s168.4 0 213.3-11.4c23.6-6.3 42.1-25 48.4-48.7C561 343.9 561 256 561 256s0-87.9-11.3-131.9zM232 334.7V177.3l142.7 78.7L232 334.7z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-info">
+      <div class="footer-contact">
+        <span class="email">olabseoul@co.kr</span>
+        <span class="divider">|</span>
+        <span class="tel">+82 10-5515-2603</span>
+        <span class="divider">|</span>
+        <span class="email2">olabseoul@naver.com</span>
+      </div>
+      <p class="copyright">Copyright © 2025 Olabseoul. All rights reserved</p>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const btn = document.getElementById('submitBtn');
+
+    const modal = document.getElementById('successModal');
+
+    function openModal() {
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    // 모달 닫기(바깥/버튼/X)
+    modal.addEventListener('click', (e) => {
+      if (e.target && e.target.dataset && e.target.dataset.close === '1') closeModal();
+    });
+
+    // ESC로 닫기
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      btn.disabled = true;
+      const original = btn.textContent;
+      btn.textContent = '전송 중...';
+
+      try {
+        const formData = new FormData(form);
+
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (!res.ok) throw new Error('submit failed');
+
+        form.reset();
+        openModal();
+
+      } catch (err) {
+        alert('전송에 실패했습니다. 잠시 후 다시 시도해주세요.');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = original;
+      }
+    });
+  </script>
+</body>
+</html>

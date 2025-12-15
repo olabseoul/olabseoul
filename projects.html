@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OLAB | PROJECTS</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;800&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Pretendard', sans-serif;
+      background: #000;
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+   /* ---------- HEADER ---------- */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 80px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .logo img {
+      height: 24px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    nav {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 60px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 1px;
+      transition: opacity 0.3s;
+    }
+
+    nav a:hover { opacity: 0.6; }
+
+    .contact {
+      font-weight: 800;
+      font-size: 17px;
+      text-decoration: none;
+      color: #fff;
+      cursor: pointer;
+    }
+    /* ---------- PAGE LAYOUT ---------- */
+    main {
+      width: 100%;
+      padding-top: 120px;
+      padding-bottom: 120px;
+    }
+
+    .projects-wrap {
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .page-title {
+      font-size: clamp(40px, 3.6vw, 64px);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin: 24px 0 56px;
+    }
+
+    /* ---------- PROJECT LIST ---------- */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(48px, 5.5vw, 96px);
+    }
+
+    .project-item {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .project-thumb {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transform: scale(1.0);
+      transition: transform .45s ease, opacity .45s ease;
+      opacity: .96;
+    }
+
+    .project-item:hover .project-thumb img {
+      transform: scale(1.02);
+      opacity: 1;
+    }
+
+    /* (1) 썸네일 테두리 회색선 제거 */
+    .project-thumb::after { content: none; }
+
+    /* ---------- 작품 제목/설명: 이미지 위 ---------- */
+    .project-overlay {
+      position: absolute;
+      top: clamp(16px, 2vw, 34px);
+      left: clamp(16px, 2vw, 34px);
+      z-index: 2;
+      max-width: min(72%, 820px);
+      pointer-events: none;
+    }
+
+    /* 글씨 가독용 은은한 그라데이션 */
+    .project-overlay::before {
+      content: "";
+      position: absolute;
+      inset: -18px -22px -18px -22px;
+      background: radial-gradient(circle at left top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 72%);
+      z-index: -1;
+    }
+
+    /* (3) 창 커질수록 같이 커지게 */
+    .project-overlay .meta-top {
+      font-size: clamp(15px, 1.25vw, 24px);
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.01em;
+      margin-bottom: clamp(4px, 0.55vw, 10px);
+    }
+
+    .project-overlay .meta-sub {
+      font-size: clamp(13px, 1.05vw, 18px);
+      font-weight: 400;
+      color: rgba(255,255,255,0.62);
+      letter-spacing: 0.01em;
+      line-height: 1.4;
+    }
+
+    /* (2) 썸네일 사이 회색 줄 제거 */
+    .divider { display: none; }
+
+    /* MORE */
+    .more-wrap {
+      display: flex;
+      justify-content: center;
+      margin: clamp(48px, 5.5vw, 96px) 0 10px;
+      opacity: .85;
+    }
+    .more-btn {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: .1em;
+      font-size: clamp(12px, 0.9vw, 15px);
+      opacity: .9;
+      transition: opacity .25s ease;
+    }
+    .more-btn:hover { opacity: 1; }
+    .more-arrow {
+      width: 0; height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 8px solid #fff;
+      opacity: .9;
+    }
+
+   /* ---------- FOOTER ---------- */
+    .footer {
+      background-color: #202020;
+      color: #888;
+      font-family: "Pretendard", sans-serif;
+      padding: 10px 80px;
+    }
+
+    .footer-logo {
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    .footer-logo-img {
+      height: 16px;
+      display: block;
+      transform: translateY(15px);
+      transition: transform 0.18s ease;
+    }
+
+    .footer-left {
+      padding-left: 30px;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-nav a{
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 600;
+      margin-right: 40px;
+      transition: color 0.3s;
+    }
+
+    .footer-right .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      margin-left: 16px;
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .footer-right .icon svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+      fill: currentColor;
+    }
+
+    .footer-right .icon:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 0.1px;
+      margin-left: auto;
+      justify-content: flex-end;
+    }
+
+    .footer-info {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .footer-contact {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+    }
+
+    .footer-contact .divider { color: #bbb; }
+    .email, .tel, .email2 { font-weight: 500; color: #bbb; }
+
+    .copyright {
+      font-size: 13px;
+      color: #555;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      header { padding: 0 20px; }
+      nav { gap: 24px; }
+      .projects-wrap { width: 88%; }
+      .page-title { margin: 18px 0 42px; }
+
+      footer.footer { padding: 10px 20px 24px; }
+      .footer-top { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .footer-left { padding-left: 0; }
+      .footer-nav { gap: 16px; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/olab_logo.png" alt="OLAB Logo" />
+      </a>
+    </div>
+
+    <nav>
+      <a href="about.html">ABOUT</a>
+      <a href="projects.html" class="active">PROJECTS</a>
+      <a href="gallery.html">GALLERY</a>
+    </nav>
+
+    <a href="contact.html" class="contact">CONTACT</a>
+  </header>
+
+  <!-- CONTENT -->
+  <main>
+    <div class="projects-wrap">
+      <h1 class="page-title">PROJECTS</h1>
+
+      <div class="project-list">
+        <!-- 1 -->
+        <a class="project-item" href="project-chungbuk-2024.html">
+          <div class="project-thumb">
+            <div class="project-overlay">
+              <div class="meta-top">Chungbuk, Chungbuk Provincial Government, 2024</div>
+              <div class="meta-sub">2024 충청북도청 미디어파사드</div>
+            </div>
+            <img src="images/projects_chungbuk_2024.png" alt="Chungbuk 2024" />
+          </div>
+          <div class="divider"></div>
+        </a>
+
+        <!-- 2 -->
+        <a class="project-item" href="project-chungbuk-2025.html">
+          <div class="project-thumb">
+            <div class="project-overlay">
+              <div class="meta-top">Chungbuk, Chungbuk Provincial Government, 2025</div>
+              <div class="meta-sub">2025 충청북도청 미디어파사드</div>
+            </div>
+            <img src="images/projects_chungbuk_2025.png" alt="Chungbuk 2025" />
+          </div>
+          <div class="divider"></div>
+        </a>
+
+        <!-- 3 -->
+        <a class="project-item" href="project-seoullo-2025.html">
+          <div class="project-thumb">
+            <div class="project-overlay">
+              <div class="meta-top">Seoul, Seoullo Media Canvas, 2025</div>
+              <div class="meta-sub">2025 서울로미디어캔버스 네이처프로젝트</div>
+            </div>
+            <img src="images/projects_seoullo_2025.png" alt="Seoullo 2025" />
+          </div>
+          <div class="divider"></div>
+        </a>
+
+        <!-- 4 -->
+        <a class="project-item" href="project-jeonju-2025.html">
+          <div class="project-thumb">
+            <div class="project-overlay">
+              <div class="meta-top">Jeonju, Media Art, 2025</div>
+              <div class="meta-sub">2025 전주시 전통문화 융합예술 미디어아트</div>
+            </div>
+            <img src="images/projects_jeonju_2025.png" alt="Jeonju 2025" />
+          </div>
+          <div class="divider"></div>
+        </a>
+
+        <!-- 5 -->
+        <a class="project-item" href="project-coex-2025.html">
+          <div class="project-thumb">
+            <div class="project-overlay">
+              <div class="meta-top">Seoul, Coex, 2025</div>
+              <div class="meta-sub">2025 서울 코엑스 융합 미디어아트</div>
+            </div>
+            <img src="images/projects_coex_2025.png" alt="Coex 2025" />
+          </div>
+          <div class="divider"></div>
+        </a>
+
+        <!-- 6 -->
+        <a class="project-item" href="project-gmap-2025.html">
+          <div class="project-thumb">
+            <div class="project-overlay">
+              <div class="meta-top">Gwangju, Media Art Platform, 2025</div>
+              <div class="meta-sub">2025 광주 미디어아트 플랫폼</div>
+            </div>
+            <img src="images/projects_gmap_2025.png" alt="GMAP 2025" />
+          </div>
+        </a>
+      </div>
+
+      <div class="more-wrap">
+        <a class="more-btn" href="#more">
+          MORE
+          <span class="more-arrow"></span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-left">
+        <a href="index.html" class="footer-logo">
+          <img src="images/olab_logo.png" alt="OLAB Logo" class="footer-logo-img">
+        </a>
+      </div>
+
+      <nav class="footer-nav">
+        <a href="about.html">ABOUT</a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+
+      <div class="footer-right">
+        <a href="https://www.instagram.com/olab_seoul" target="_blank" rel="noopener noreferrer" class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img" aria-hidden="true">
+            <path fill="currentColor"
+              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 186.6c-39.6 0-71.7-32.1-71.7-71.7s32.1-71.7 71.7-71.7 71.7 32.1 71.7 71.7-32.1 71.7-71.7 71.7zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-.2-35.7-9.9-67.3-36.3-93.7s-58-36.1-93.7-36.3c-37-.2-147.3-.2-184.3 0-35.7.2-67.3 9.9-93.7 36.3s-36.1 58-36.3 93.7c-.2 37-.2 147.3 0 184.3.2 35.7 9.9 67.3 36.3 93.7s58 36.1 93.7 36.3c37 .2 147.3.2 184.3 0 35.7-.2 67.3-9.9 93.7-36.3s36.1-58 36.3-93.7c.2-37.1.2-147.4 0-184.3zm-48.5 224c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.4 9s-102.9 2.6-132.4-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.4s-2.6-102.9 9-132.4c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.4-9s102.9-2.6 132.4 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.4s2.7 102.9-9 132.4z" />
+          </svg>
+        </a>
+
+        <a href="https://www.youtube.com/@olab_seoul" target="_blank" rel="noopener noreferrer" class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" role="img" aria-hidden="true">
+            <path fill="currentColor"
+              d="M549.7 124.1c-6.3-23.7-24.9-42.4-48.4-48.7C456.4 64 288 64 288 64s-168.4 0-213.3 11.4c-23.6 6.3-42.1 25-48.4 48.7C15 168.1 15 256 15 256s0 87.9 11.3 131.9c6.3 23.7 24.9 42.4 48.4 48.7C119.6 448 288 448 288 448s168.4 0 213.3-11.4c23.6-6.3 42.1-25 48.4-48.7C561 343.9 561 256 561 256s0-87.9-11.3-131.9zM232 334.7V177.3l142.7 78.7L232 334.7z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-info">
+      <div class="footer-contact">
+        <span class="email">olabseoul@co.kr</span>
+        <span class="divider">|</span>
+        <span class="tel">+82 10-5515-2603</span>
+        <span class="divider">|</span>
+        <span class="email2">olabseoul@naver.com</span>
+      </div>
+      <p class="copyright">Copyright © 2025 Olabseoul. All rights reserved</p>
+    </div>
+  </footer>
+</body>
+</html>
