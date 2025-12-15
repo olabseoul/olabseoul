@@ -461,183 +461,171 @@
        MOBILE ONLY (여기만 수정/강화)
        - 데스크톱은 절대 안 건드림
     ====================================================== */
-    @media (max-width: 768px){
+@media (max-width: 768px){
 
-      /* --- HEADER: 겹침 방지(햄버거 없이) --- */
-      header{
-        padding: 0 16px !important;
-        height: 64px !important;
-      }
+  /* ===== Header: 모바일에서 겹침 방지 + 폰트 축소 ===== */
+  header{
+    padding: 0 16px !important;
+    height: 64px !important;
+  }
 
-      .logo img{
-        height: 20px !important;
-      }
+  .logo img{
+    height: 20px !important;
+  }
 
-      /* 모바일에서는 가운데 고정 nav가 겹치므로 static으로 전환 */
-      nav{
-        position: static !important;
-        left: auto !important;
-        transform: none !important;
-        flex: 1 1 auto !important;
-        justify-content: center !important;
-        gap: 14px !important;
-        display: flex !important;
-        margin: 0 10px !important;
-        flex-wrap: nowrap !important;
-      }
+  /* 가운데 고정 nav가 모바일에서 겹치기 쉬워서 static으로 전환 */
+  nav{
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    display: flex !important;
+    gap: 12px !important;
+    margin: 0 10px !important;
+  }
 
-      nav a{
-        font-size: 12px !important;
-        letter-spacing: 0.5px !important;
-        white-space: nowrap !important;
-      }
+  nav a{
+    font-size: 12px !important;
+    letter-spacing: 0.5px !important;
+    white-space: nowrap !important;
+  }
 
-      .contact{
-        font-size: 12px !important;
-        letter-spacing: 0.6px !important;
-        white-space: nowrap !important;
-      }
+  .contact{
+    font-size: 12px !important;
+    letter-spacing: 0.5px !important;
+    white-space: nowrap !important;
+  }
 
-      /* --- indicator: 모바일에서는 숨기는 게 안정적 --- */
-      .indicator{
-        display: none !important;
-      }
+  /* ===== Index: 메인 로고 크게 ===== */
+  .main-content img{
+    width: 70vw !important;
+    max-width: none !important;
+  }
 
-      /* --- MAIN 로고: 모바일에서는 더 보기 좋게 --- */
-      .main-content img{
-        width: 68vw !important;
-        max-width: none !important;
-      }
+  /* ===== Indicator: 모바일에서는 숨김(겹침/가독성 문제) ===== */
+  .indicator{
+    display: none !important;
+  }
 
-      /* --- ABOUT 텍스트 축소/폭 제한 --- */
-      .about-text{
-        width: 92% !important;
-      }
+  /* ===== ABOUT: 텍스트 축소 ===== */
+  .about-text{
+    width: 92% !important;
+  }
+  .about-text h2{
+    font-size: 26px !important;
+    margin-bottom: 8px !important;
+  }
+  .about-text h4{
+    font-size: 16px !important;
+    margin-bottom: 18px !important;
+    line-height: 1.35 !important;
+  }
+  .about-btn{
+    font-size: 14px !important;
+  }
 
-      .about-text h2{
-        font-size: 26px !important;
-        margin-bottom: 8px !important;
-      }
+  /* ===== WHO: 텍스트/박스 축소 ===== */
+  .who-text{
+    width: 92% !important;
+  }
+  .who-text h2{
+    font-size: 22px !important;
+    margin-bottom: 12px !important;
+  }
+  .who-text h4{
+    font-size: 13px !important;
+    margin-bottom: 16px !important;
+    line-height: 1.5 !important;
+  }
 
-      .about-text h4{
-        font-size: 16px !important;
-        margin-bottom: 20px !important;
-        line-height: 1.35 !important;
-      }
+  .who-boxes{
+    gap: 10px !important;
+  }
+  .who-box{
+    padding: 10px 14px !important;
+    border-radius: 14px !important;
+    font-size: 12px !important;
+  }
 
-      .about-btn{
-        font-size: 14px !important;
-      }
+  /* ===== WORKS: 슬라이더/화살표/타이틀 축소 ===== */
+  #works{
+    padding-top: 64px !important;
+  }
 
-      /* --- WHO 텍스트/박스 축소 --- */
-      .who-text{
-        width: 92% !important;
-      }
+  .slider{
+    width: 92% !important;
+    border-radius: 8px !important;
+  }
 
-      .who-text h2{
-        font-size: 22px !important;
-        margin-bottom: 12px !important;
-      }
+  .navigation{
+    width: 92% !important;
+  }
 
-      .who-text h4{
-        font-size: 13px !important;
-        margin-bottom: 18px !important;
-        line-height: 1.5 !important;
-      }
+  .navigation .prev,
+  .navigation .next{
+    font-size: 2rem !important;
+    padding: 8px 10px !important;
+  }
 
-      .who-boxes{
-        gap: 10px !important;
-      }
+  .works-title{
+    font-size: 16px !important;
+    margin-top: 14px !important;
+  }
 
-      .who-box{
-        padding: 10px 14px !important;
-        border-radius: 14px !important;
-        font-size: 12px !important;
-      }
+  /* ===== JOIN: 버튼 축소 ===== */
+  .scroll-line{
+    height: 120px !important;
+    margin-bottom: 16px !important;
+  }
 
-      /* --- WORKS: 상단 패딩/슬라이더 폭/타이틀 축소 --- */
-      #works{
-        padding-top: 64px !important;
-      }
+  .join-btn{
+    padding: 12px 28px !important;
+    font-size: 14px !important;
+    border-radius: 10px !important;
+  }
 
-      .slider{
-        width: 92% !important;
-        border-radius: 8px !important;
-      }
+  /* ===== Footer: 모바일 정리 ===== */
+  .footer{
+    padding: 12px 16px 22px !important;
+  }
 
-      .navigation{
-        width: 92% !important;
-      }
+  .footer-left{
+    padding-left: 0 !important;
+    margin-bottom: 8px !important;
+  }
 
-      .navigation .prev,
-      .navigation .next{
-        font-size: 2rem !important;
-        padding: 8px 10px !important;
-      }
+  .footer-nav{
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px 16px !important;
+    margin: 10px 0 10px !important;
+  }
 
-      .works-title{
-        font-size: 16px !important;
-        margin-top: 14px !important;
-      }
+  .footer-nav a{
+    margin-right: 0 !important;
+    font-size: 12px !important;
+  }
 
-      /* --- JOIN 버튼 축소 --- */
-      .scroll-line{
-        height: 120px !important;
-        margin-bottom: 16px !important;
-      }
+  .footer-right{
+    margin-left: 0 !important;
+    justify-content: flex-start !important;
+    padding-top: 6px !important;
+  }
 
-      .join-btn{
-        padding: 12px 28px !important;
-        font-size: 14px !important;
-        border-radius: 10px !important;
-      }
+  .footer-info{
+    margin-top: 22px !important;
+    font-size: 12px !important;
+  }
 
-      /* --- FOOTER: 모바일 정리(랩/폰트 축소) --- */
-      .footer{
-        padding: 12px 16px 22px !important;
-      }
+  .footer-contact{
+    gap: 6px 10px !important;
+    font-size: 12px !important;
+  }
 
-      .footer-left{
-        padding-left: 0 !important;
-        margin-bottom: 8px !important;
-      }
+  .copyright{
+    font-size: 11px !important;
+  }
+}
 
-      .footer-nav{
-        display: flex !important;
-        flex-wrap: wrap !important;
-        gap: 10px 16px !important;
-        margin: 10px 0 10px !important;
-      }
-
-      .footer-nav a{
-        margin-right: 0 !important;
-        font-size: 12px !important;
-      }
-
-      .footer-right{
-        margin-left: 0 !important;
-        justify-content: flex-start !important;
-        padding-top: 6px !important;
-      }
-
-      .footer-info{
-        margin-top: 22px !important;
-        font-size: 12px !important;
-      }
-
-      .footer-contact{
-        gap: 6px 10px !important;
-        font-size: 12px !important;
-      }
-
-      .copyright{
-        font-size: 11px !important;
-      }
-    }
-  </style>
-</head>
-
-<body>
 
   <!-- HEADER -->
   <header>
