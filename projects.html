@@ -18,7 +18,7 @@
       overflow-x: hidden;
     }
 
-   /* ---------- HEADER ---------- */
+    /* ---------- HEADER ---------- */
     header {
       position: fixed;
       top: 0;
@@ -37,7 +37,6 @@
     .logo img {
       height: 24px;
       cursor: pointer;
-      transition: transform 0.3s ease;
     }
 
     nav {
@@ -65,7 +64,13 @@
       text-decoration: none;
       color: #fff;
       cursor: pointer;
+      transition: opacity 0.3s;
     }
+
+    .contact:hover {
+      opacity: 0.8;
+    }
+
     /* ---------- PAGE LAYOUT ---------- */
     main {
       width: 100%;
@@ -121,7 +126,6 @@
       opacity: 1;
     }
 
-    /* (1) 썸네일 테두리 회색선 제거 */
     .project-thumb::after { content: none; }
 
     /* ---------- 작품 제목/설명: 이미지 위 ---------- */
@@ -134,7 +138,6 @@
       pointer-events: none;
     }
 
-    /* 글씨 가독용 은은한 그라데이션 */
     .project-overlay::before {
       content: "";
       position: absolute;
@@ -143,7 +146,6 @@
       z-index: -1;
     }
 
-    /* (3) 창 커질수록 같이 커지게 */
     .project-overlay .meta-top {
       font-size: clamp(15px, 1.25vw, 24px);
       font-weight: 600;
@@ -160,7 +162,6 @@
       line-height: 1.4;
     }
 
-    /* (2) 썸네일 사이 회색 줄 제거 */
     .divider { display: none; }
 
     /* MORE */
@@ -192,24 +193,25 @@
       opacity: .9;
     }
 
-   /* ---------- FOOTER ---------- */
+    /* ---------- FOOTER (about 페이지와 동일) ---------- */
     .footer {
       background-color: #202020;
       color: #888;
       font-family: "Pretendard", sans-serif;
-      padding: 10px 80px;
+      padding: 40px 80px 30px;
     }
 
-    .footer-logo {
-      display: inline-block;
-      text-decoration: none;
+    .footer-top {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
     }
+
+    .footer-logo { display: inline-block; text-decoration: none; }
 
     .footer-logo-img {
       height: 16px;
       display: block;
-      transform: translateY(15px);
-      transition: transform 0.18s ease;
     }
 
     .footer-left {
@@ -218,12 +220,29 @@
       align-items: center;
     }
 
-    .footer-nav a{
+    .footer-nav {
+      display: flex;
+      align-items: center;
+      margin-left: 60px;
+    }
+
+    .footer-nav a {
       text-decoration: none;
       color: #ccc;
       font-weight: 600;
       margin-right: 40px;
       transition: color 0.3s;
+    }
+
+    .footer-nav a:hover {
+      color: #fff;
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 0.1px;
+      margin-left: auto;
+      justify-content: flex-end;
     }
 
     .footer-right .icon {
@@ -245,21 +264,10 @@
       fill: currentColor;
     }
 
-    .footer-right .icon:hover {
-      color: #fff;
-      transform: scale(1.1);
-    }
-
-    .footer-right {
-      display: flex;
-      gap: 0.1px;
-      margin-left: auto;
-      justify-content: flex-end;
-    }
+    .footer-right .icon:hover { color: #fff; transform: scale(1.15); }
 
     .footer-info {
       text-align: center;
-      margin-top: 60px;
       font-size: 14px;
       color: #666;
     }
@@ -269,7 +277,7 @@
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 2px;
+      margin-bottom: 8px;
     }
 
     .footer-contact .divider { color: #bbb; }
@@ -279,214 +287,185 @@
       font-size: 13px;
       color: #555;
       text-align: center;
+      margin-top: 4px;
     }
-@media (max-width: 768px){
 
-  /* ===== HEADER (겹침 해결) ===== */
-  header{
-    padding: 0 16px !important;
-    height: 64px !important;
-  }
+    /* ---------- MOBILE ---------- */
+    @media (max-width: 768px) {
 
-  .logo img{
-    height: 20px !important;
-  }
+      header {
+        padding: 0 16px !important;
+        height: 64px !important;
+      }
 
-  /* 모바일에서 가운데 고정 nav 해제 -> 겹침 방지 */
-  nav{
-    position: static !important;
-    left: auto !important;
-    transform: none !important;
-    display: flex !important;
-    gap: 12px !important;
-    margin: 0 10px !important;
-  }
+      .logo img {
+        height: 20px !important;
+      }
 
-  nav a{
-    font-size: 12px !important;
-    letter-spacing: 0.5px !important;
-    white-space: nowrap !important;
-  }
+      nav {
+        position: static !important;
+        left: auto !important;
+        transform: none !important;
+        display: flex !important;
+        gap: 12px !important;
+        margin: 0 10px !important;
+      }
 
-  .contact{
-    font-size: 12px !important;
-    letter-spacing: 0.5px !important;
-    white-space: nowrap !important;
-  }
+      nav a {
+        font-size: 12px !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
+      }
 
-  /* ===== PAGE LAYOUT ===== */
-  main{
-    padding-top: 96px !important;   /* 헤더 64px 고려 */
-    padding-bottom: 72px !important;
-  }
+      .contact {
+        font-size: 12px !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
+      }
 
-  .projects-wrap{
-    width: calc(100% - 32px) !important;
-    max-width: 100% !important;
-  }
+      main {
+        padding-top: 96px !important;
+        padding-bottom: 72px !important;
+      }
 
-  .page-title{
-    font-size: 32px !important;
-    margin: 12px 0 22px !important;
-  }
+      .projects-wrap {
+        width: calc(100% - 32px) !important;
+        max-width: 100% !important;
+      }
 
-  /* ===== PROJECT LIST ===== */
-  .project-list{
-    gap: 20px !important;
-  }
+      .page-title {
+        font-size: 32px !important;
+        margin: 12px 0 22px !important;
+      }
 
-  .project-thumb{
-    border-radius: 10px !important;
-  }
+      .project-list {
+        gap: 20px !important;
+      }
 
-  /* 썸네일 이미지 자체는 비율 유지 + 꽉 차게 */
-  .project-thumb img{
-    width: 100% !important;
-    height: auto !important;
-    transform: none !important;
-    opacity: 1 !important;
-  }
+      .project-thumb {
+        border-radius: 10px !important;
+      }
 
-  /* ===== OVERLAY (모바일용 크기/줄바꿈/가독성) ===== */
-  .project-overlay{
-    top: 12px !important;
-    left: 12px !important;
-    right: 12px !important;
-    max-width: none !important;
-  }
+      .project-thumb img {
+        width: 100% !important;
+        height: auto !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
 
-  .project-overlay::before{
-    inset: -14px -14px -14px -14px !important;
-    background: linear-gradient(180deg, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.0) 75%) !important;
-  }
+      .project-overlay {
+        top: 12px !important;
+        left: 12px !important;
+        right: 12px !important;
+        max-width: none !important;
+      }
 
-  .project-overlay .meta-top{
-    font-size: 13px !important;
-    line-height: 1.25 !important;
-    margin-bottom: 6px !important;
-    letter-spacing: 0.01em !important;
-    word-break: keep-all !important;
-  }
+      .project-overlay::before {
+        inset: -14px -14px -14px -14px !important;
+        background: linear-gradient(180deg, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.0) 75%) !important;
+      }
 
-  .project-overlay .meta-sub{
-    font-size: 12px !important;
-    line-height: 1.35 !important;
-    color: rgba(255,255,255,0.75) !important;
-    word-break: keep-all !important;
-  }
+      .project-overlay .meta-top {
+        font-size: 13px !important;
+        line-height: 1.25 !important;
+        margin-bottom: 6px !important;
+        letter-spacing: 0.01em !important;
+        word-break: keep-all !important;
+      }
 
-  /* ===== MORE ===== */
-  .more-wrap{
-    margin: 28px 0 0 !important;
-  }
+      .project-overlay .meta-sub {
+        font-size: 12px !important;
+        line-height: 1.35 !important;
+        color: rgba(255,255,255,0.75) !important;
+        word-break: keep-all !important;
+      }
 
-  .more-btn{
-    font-size: 12px !important;
-    gap: 8px !important;
-  }
+      .more-wrap {
+        margin: 28px 0 0 !important;
+      }
 
- 
-      /* FOOTER */
-      .footer{ padding: 12px 16px 22px !important; }
-      .footer-left{ padding-left: 0 !important; margin-bottom: 8px !important; }
+      .more-btn {
+        font-size: 12px !important;
+        gap: 8px !important;
+      }
 
-      .footer-nav{
+      /* FOOTER MOBILE */
+      .footer {
+        padding: 14px 16px 22px !important;
+      }
+
+      .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 0 !important;
+      }
+
+      .footer-left,
+      .footer-nav,
+      .footer-right,
+      .footer-info {
+        width: 100% !important;
+      }
+
+      .footer-left {
+        padding-left: 0 !important;
+        justify-content: flex-start !important;
+        margin: 0 0 10px 0 !important;
+      }
+
+      .footer-logo-img {
+        height: 14px !important;
+      }
+
+      .footer-nav {
         display: flex !important;
         flex-wrap: wrap !important;
         gap: 10px 16px !important;
-        margin: 10px 0 10px !important;
+        margin: 6px 0 12px 0 !important;
+        justify-content: flex-start !important;
       }
-      .footer-nav a{ margin-right: 0 !important; font-size: 12px !important; }
 
-      .footer-right{
+      .footer-nav a {
+        margin-right: 0 !important;
+        font-size: 12px !important;
+        line-height: 1.2 !important;
+      }
+
+      .footer-right {
         margin-left: 0 !important;
         justify-content: flex-start !important;
-        padding-top: 6px !important;
+        gap: 12px !important;
+        padding: 2px 0 10px 0 !important;
       }
 
-      .footer-info{ margin-top: 22px !important; font-size: 12px !important; }
-      .footer-contact{ gap: 6px 10px !important; font-size: 12px !important; }
-      .copyright{ font-size: 11px !important; }
+      .footer-right .icon {
+        margin-left: 0 !important;
+      }
+
+      .footer-info {
+        margin-top: 14px !important;
+        font-size: 12px !important;
+        text-align: left !important;
+      }
+
+      .footer-contact {
+        justify-content: flex-start !important;
+        gap: 6px 10px !important;
+        flex-wrap: wrap !important;
+      }
+
+      .footer a,
+      .footer a:visited {
+        color: inherit !important;
+        text-decoration: none !important;
+      }
+
+      .copyright {
+        margin-top: 8px !important;
+        font-size: 11px !important;
+        text-align: left !important;
+      }
     }
-	  /* =========================
-   MOBILE ONLY - FOOTER FIX
-   ========================= */
-@media (max-width: 768px){
-
-  .footer{
-    padding: 14px 16px 22px !important;
-  }
-
-  /* 푸터 내부 요소들을 세로로 쌓기 */
-  .footer-left,
-  .footer-nav,
-  .footer-right,
-  .footer-info{
-    width: 100% !important;
-  }
-
-  .footer-left{
-    padding-left: 0 !important;
-    justify-content: flex-start !important;
-    margin: 0 0 10px 0 !important;
-  }
-
-  .footer-logo-img{
-    height: 14px !important;
-    transform: none !important;   /* 모바일에서 로고 내려가는거 제거 */
-  }
-
-  .footer-nav{
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 10px 16px !important;
-    margin: 6px 0 12px 0 !important;
-    justify-content: flex-start !important;
-  }
-
-  .footer-nav a{
-    margin-right: 0 !important;
-    font-size: 12px !important;
-    line-height: 1.2 !important;
-  }
-
-  .footer-right{
-    margin-left: 0 !important;
-    justify-content: flex-start !important;
-    gap: 12px !important;
-    padding: 2px 0 10px 0 !important;
-  }
-
-  .footer-right .icon{
-    margin-left: 0 !important;
-  }
-
-  .footer-info{
-    margin-top: 14px !important;
-    font-size: 12px !important;
-    text-align: left !important;  /* 가운데정렬이 싫으면 left가 더 깔끔 */
-  }
-
-  .footer-contact{
-    justify-content: flex-start !important;
-    gap: 6px 10px !important;
-    flex-wrap: wrap !important;
-  }
-
-  /* 아이폰에서 전화번호가 파란 링크로 보이는 거 방지 */
-  .footer a,
-  .footer a:visited{
-    color: inherit !important;
-    text-decoration: none !important;
-  }
-
-  .copyright{
-    margin-top: 8px !important;
-    font-size: 11px !important;
-    text-align: left !important;
-  }
-}
-
   </style>
 </head>
 
@@ -514,31 +493,52 @@
       <h1 class="page-title">PROJECTS</h1>
 
       <div class="project-list">
+
         <!-- 1 -->
-        <a class="project-item" href="project-chungbuk-2024.html">
+        <a class="project-item" href="project-gugak-2026.html">
           <div class="project-thumb">
             <div class="project-overlay">
-              <div class="meta-top">Chungbuk, Chungbuk Provincial Government, 2024</div>
-              <div class="meta-sub">2024 충청북도청 미디어파사드</div>
+              <div class="meta-top">Chungju, [Chungju Bonsaek; Gugak ONcheon], 2026</div>
+              <div class="meta-sub">2026 충주시 [충주본색; 국악ON천]미디어파사드</div>
             </div>
-            <img src="images/projects_chungbuk_2024.png" alt="Chungbuk 2024" />
+            <img src="images/projects_GugakONcheon_2026.png" alt="GugakONcheon 2026" />
           </div>
-          <div class="divider"></div>
         </a>
 
         <!-- 2 -->
-        <a class="project-item" href="project-chungbuk-2025.html">
+        <a class="project-item" href="project-gmap-2025.html">
           <div class="project-thumb">
             <div class="project-overlay">
-              <div class="meta-top">Chungbuk, Chungbuk Provincial Government, 2025</div>
-              <div class="meta-sub">2025 충청북도청 미디어파사드</div>
+              <div class="meta-top">DEMO, Media Art Platform, 2025</div>
+              <div class="meta-sub">광주 G-MAP DEMO</div>
             </div>
-            <img src="images/projects_chungbuk_2025.png" alt="Chungbuk 2025" />
+            <img src="images/projects_gmap_2025.png" alt="GMAP 2025" />
           </div>
-          <div class="divider"></div>
         </a>
 
         <!-- 3 -->
+        <a class="project-item" href="project-coex-2025.html">
+          <div class="project-thumb">
+            <div class="project-overlay">
+              <div class="meta-top">DEMO, Coex, 2025</div>
+              <div class="meta-sub">서울 코엑스 타워 DEMO</div>
+            </div>
+            <img src="images/projects_coex_2025.png" alt="Coex 2025" />
+          </div>
+        </a>
+
+        <!-- 4 -->
+        <a class="project-item" href="project-jeonju-2025.html">
+          <div class="project-thumb">
+            <div class="project-overlay">
+              <div class="meta-top">DEMO, Media Art, 2025</div>
+              <div class="meta-sub">전주시 팔복예술공장 DEMO</div>
+            </div>
+            <img src="images/projects_jeonju_2025.png" alt="Jeonju 2025" />
+          </div>
+        </a>
+
+        <!-- 5 -->
         <a class="project-item" href="project-seoullo-2025.html">
           <div class="project-thumb">
             <div class="project-overlay">
@@ -547,50 +547,30 @@
             </div>
             <img src="images/projects_seoullo_2025.png" alt="Seoullo 2025" />
           </div>
-          <div class="divider"></div>
-        </a>
-
-        <!-- 4 -->
-        <a class="project-item" href="project-jeonju-2025.html">
-          <div class="project-thumb">
-            <div class="project-overlay">
-              <div class="meta-top">Jeonju, Media Art, 2025</div>
-              <div class="meta-sub">2025 전주시 전통문화 융합예술 미디어아트</div>
-            </div>
-            <img src="images/projects_jeonju_2025.png" alt="Jeonju 2025" />
-          </div>
-          <div class="divider"></div>
-        </a>
-
-        <!-- 5 -->
-        <a class="project-item" href="project-coex-2025.html">
-          <div class="project-thumb">
-            <div class="project-overlay">
-              <div class="meta-top">Seoul, Coex, 2025</div>
-              <div class="meta-sub">2025 서울 코엑스 융합 미디어아트</div>
-            </div>
-            <img src="images/projects_coex_2025.png" alt="Coex 2025" />
-          </div>
-          <div class="divider"></div>
         </a>
 
         <!-- 6 -->
-        <a class="project-item" href="project-gmap-2025.html">
+        <a class="project-item" href="project-chungbuk-2025.html">
           <div class="project-thumb">
             <div class="project-overlay">
-              <div class="meta-top">Gwangju, Media Art Platform, 2025</div>
-              <div class="meta-sub">2025 광주 미디어아트 플랫폼</div>
+              <div class="meta-top">Chungbuk, Chungbuk Provincial Government, 2025</div>
+              <div class="meta-sub">2025 충청북도청 미디어파사드</div>
             </div>
-            <img src="images/projects_gmap_2025.png" alt="GMAP 2025" />
+            <img src="images/projects_chungbuk_2025_000.png" alt="Chungbuk 2025" />
           </div>
         </a>
-      </div>
 
-      <div class="more-wrap">
-        <a class="more-btn" href="#more">
-          MORE
-          <span class="more-arrow"></span>
+        <!-- 7 -->
+        <a class="project-item" href="project-chungbuk-2024.html">
+          <div class="project-thumb">
+            <div class="project-overlay">
+              <div class="meta-top">Chungbuk, Chungbuk Provincial Government, 2024</div>
+              <div class="meta-sub">2024 충청북도청 미디어파사드</div>
+            </div>
+            <img src="images/projects_chungbuk_2024.png" alt="Chungbuk 2024" />
+          </div>
         </a>
+
       </div>
     </div>
   </main>
@@ -612,14 +592,14 @@
       </nav>
 
       <div class="footer-right">
-        <a href="https://www.instagram.com/olab_seoul" target="_blank" rel="noopener noreferrer" class="icon">
+        <a href="https://www.instagram.com/olab_seoul" target="_blank" rel="noopener noreferrer" class="icon" aria-label="instagram">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img" aria-hidden="true">
             <path fill="currentColor"
               d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 186.6c-39.6 0-71.7-32.1-71.7-71.7s32.1-71.7 71.7-71.7 71.7 32.1 71.7 71.7-32.1 71.7-71.7 71.7zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-.2-35.7-9.9-67.3-36.3-93.7s-58-36.1-93.7-36.3c-37-.2-147.3-.2-184.3 0-35.7.2-67.3 9.9-93.7 36.3s-36.1 58-36.3 93.7c-.2 37-.2 147.3 0 184.3.2 35.7 9.9 67.3 36.3 93.7s58 36.1 93.7 36.3c37 .2 147.3.2 184.3 0 35.7-.2 67.3-9.9 93.7-36.3s36.1-58 36.3-93.7c.2-37.1.2-147.4 0-184.3zm-48.5 224c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.4 9s-102.9 2.6-132.4-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.4s-2.6-102.9 9-132.4c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.4-9s102.9-2.6 132.4 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.4s2.7 102.9-9 132.4z" />
           </svg>
         </a>
 
-        <a href="https://www.youtube.com/@olab_seoul" target="_blank" rel="noopener noreferrer" class="icon">
+        <a href="https://www.youtube.com/@olab_seoul" target="_blank" rel="noopener noreferrer" class="icon" aria-label="youtube">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" role="img" aria-hidden="true">
             <path fill="currentColor"
               d="M549.7 124.1c-6.3-23.7-24.9-42.4-48.4-48.7C456.4 64 288 64 288 64s-168.4 0-213.3 11.4c-23.6 6.3-42.1 25-48.4 48.7C15 168.1 15 256 15 256s0 87.9 11.3 131.9c6.3 23.7 24.9 42.4 48.4 48.7C119.6 448 288 448 288 448s168.4 0 213.3-11.4c23.6-6.3 42.1-25 48.4-48.7C561 343.9 561 256 561 256s0-87.9-11.3-131.9zM232 334.7V177.3l142.7 78.7L232 334.7z" />

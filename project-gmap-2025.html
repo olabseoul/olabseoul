@@ -19,11 +19,10 @@
       overflow-x: hidden;
     }
 
-    /* ---------- HEADER ---------- */
+    /* ---------- HEADER (about 통일) ---------- */
     header {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       height: 80px;
       display: flex;
@@ -38,7 +37,6 @@
     .logo img {
       height: 24px;
       cursor: pointer;
-      transition: transform 0.3s ease;
     }
 
     nav {
@@ -57,7 +55,6 @@
       letter-spacing: 1px;
       transition: opacity 0.3s;
     }
-
     nav a:hover { opacity: 0.6; }
 
     .contact {
@@ -66,7 +63,9 @@
       text-decoration: none;
       color: #fff;
       cursor: pointer;
+      transition: opacity 0.3s;
     }
+    .contact:hover { opacity: 0.8; }
 
     /* ---------- PAGE WRAP ---------- */
     main {
@@ -152,7 +151,7 @@
       font-weight: 400;
     }
 
-    /* ---------- THUMB IMAGE (대표 이미지) ---------- */
+    /* ---------- THUMB IMAGE ---------- */
     .hero-shot {
       border-radius: 14px;
       overflow: hidden;
@@ -166,11 +165,11 @@
       opacity: .98;
     }
 
-    /* ---------- OVERVIEW (좌: 라벨 / 우: 본문) ---------- */
+    /* ---------- OVERVIEW ---------- */
     .overview {
       display: grid;
       grid-template-columns: 200px 1fr;
-      column-gap: clamp(22px, 3.2vw, 86px); /* ✅ 기존 73.2vw 같은 값은 모바일에서 터짐 */
+      column-gap: clamp(22px, 3.2vw, 86px);
       align-items: start;
       margin-bottom: clamp(34px, 4vw, 68px);
     }
@@ -223,37 +222,45 @@
       opacity: 1;
     }
 
-    /* ---------- FOOTER ---------- */
-    footer.footer,
+    /* ---------- FOOTER (about 통일) ---------- */
     .footer {
-      background-color: #333;
+      background-color: #202020;
       color: #888;
       font-family: "Pretendard", sans-serif;
-      padding: 10px 80px 24px;
+      padding: 40px 80px 30px;
     }
 
     .footer-top {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #222;
-      padding: 12px 0 16px;
+      margin-bottom: 40px;
     }
 
-    .footer-left { padding-left: 30px; }
     .footer-logo { display: inline-block; text-decoration: none; }
-    .footer-logo-img { height: 16px; display: block; }
+
+    .footer-logo-img {
+      height: 16px;
+      display: block;
+    }
+
+    .footer-left {
+      padding-left: 30px;
+      display: flex;
+      align-items: center;
+    }
 
     .footer-nav {
       display: flex;
-      gap: 40px;
+      align-items: center;
+      margin-left: 60px;
     }
+
     .footer-nav a {
       text-decoration: none;
       color: #ccc;
       font-weight: 600;
-      font-size: clamp(12px, 0.85vw, 14px);
-      transition: color .3s;
+      margin-right: 40px;
+      transition: color 0.3s;
     }
     .footer-nav a:hover { color: #fff; }
 
@@ -263,6 +270,7 @@
       margin-left: auto;
       justify-content: flex-end;
     }
+
     .footer-right .icon {
       display: inline-flex;
       align-items: center;
@@ -272,168 +280,159 @@
       margin-left: 16px;
       color: #bbb;
       text-decoration: none;
-      transition: color .25s ease, transform .25s ease;
+      transition: color 0.25s ease, transform 0.25s ease;
     }
+
     .footer-right .icon svg {
       width: 18px;
       height: 18px;
       display: block;
       fill: currentColor;
     }
-    .footer-right .icon:hover {
-      color: #fff;
-      transform: scale(1.1);
-    }
+    .footer-right .icon:hover { color: #fff; transform: scale(1.15); }
 
     .footer-info {
       text-align: center;
-      margin-top: 40px;
-      font-size: clamp(12px, 0.9vw, 15px);
+      font-size: 14px;
       color: #666;
     }
+
     .footer-contact {
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
     .footer-contact .divider { color: #bbb; }
-    .email, .tel, .email2 {
-      font-weight: 500;
-      color: #bbb;
-      font-size: clamp(12px, 0.85vw, 14px);
-    }
+    .email, .tel, .email2 { font-weight: 500; color: #bbb; }
+
     .copyright {
-      font-size: clamp(11px, 0.8vw, 13px);
+      font-size: 13px;
       color: #555;
       text-align: center;
-    }
-
-    /* ✅ 아이폰에서 전화번호/메일이 파란 링크로 보이는 거 방지 */
-    .footer a,
-    .footer a:visited{
-      color: inherit !important;
-      text-decoration: none !important;
-    }
-    .footer a[href^="tel:"],
-    .footer a[href^="mailto:"]{
-      color: inherit !important;
-      text-decoration: none !important;
+      margin-top: 4px;
     }
 
     /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 768px){
-      header{
+    @media (max-width: 900px) {
+      .overview { grid-template-columns: 1fr; row-gap: 14px; }
+      .overview-label { padding-top: 0; }
+    }
+
+    @media (max-width: 768px) {
+      header {
         padding: 0 16px !important;
         height: 64px !important;
       }
-
-      .logo img{ height: 20px !important; }
-
-      nav{
+      .logo img { height: 20px !important; }
+      nav {
         position: static !important;
         left: auto !important;
         transform: none !important;
+        display: flex !important;
         gap: 12px !important;
       }
-
-      nav a{
+      nav a {
         font-size: 12px !important;
         letter-spacing: 0.5px !important;
         white-space: nowrap !important;
       }
-
-      .contact{
+      .contact {
         font-size: 12px !important;
         white-space: nowrap !important;
       }
 
-      main{
+      main {
         padding-top: 96px !important;
         padding-bottom: 72px !important;
       }
-
-      /* ✅ 상세페이지 컨테이너 폭 */
-      .detail-wrap{
+      .detail-wrap {
         width: calc(100% - 32px) !important;
         max-width: 100% !important;
       }
-
-      .video-card,
-      .hero-shot,
-      .shot{
+      .video-card, .hero-shot, .shot {
         border-radius: 10px !important;
       }
-
-      .detail-title{
+      .detail-title {
         font-size: 26px !important;
+        line-height: 1.25 !important;
       }
-
-      .meta-row{
+      .meta-row {
         gap: 10px 16px !important;
         margin-bottom: 22px !important;
         font-size: 12px !important;
       }
-
-      /* ✅ overview 모바일 1컬럼 */
-      .overview{
+      .meta-label { font-size: 11px !important; }
+      .overview {
         grid-template-columns: 1fr !important;
-        row-gap: 12px !important;
         column-gap: 0 !important;
+        row-gap: 12px !important;
       }
-
-      .overview-label{
+      .overview-label {
         padding-top: 0 !important;
         font-size: 14px !important;
+        letter-spacing: 0.14em !important;
       }
-
-      .overview-body{
+      .overview-body {
         font-size: 14px !important;
         line-height: 1.85 !important;
       }
+      .gallery { gap: 16px !important; }
 
-      .gallery{
-        gap: 16px !important;
+      /* FOOTER MOBILE */
+      .footer {
+        padding: 14px 16px 22px !important;
       }
-
-      footer.footer,
-      .footer{
-        padding: 12px 16px 22px !important;
+      .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 0 !important;
       }
-
-      .footer-top{
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 12px !important;
-        padding: 10px 0 14px !important;
+      .footer-left,
+      .footer-nav,
+      .footer-right,
+      .footer-info {
+        width: 100% !important;
       }
-
-      .footer-left{
+      .footer-left {
         padding-left: 0 !important;
+        margin: 0 0 10px 0 !important;
       }
-
-      .footer-nav{
+      .footer-nav {
+        display: flex !important;
         flex-wrap: wrap !important;
         gap: 10px 16px !important;
+        margin: 6px 0 12px 0 !important;
       }
-
-      .footer-right{
-        margin-left: 0 !important;
-        justify-content: flex-start !important;
-      }
-
-      .footer-info{
-        margin-top: 18px !important;
+      .footer-nav a {
+        margin-right: 0 !important;
         font-size: 12px !important;
       }
-
-      .footer-contact{
+      .footer-right {
+        margin-left: 0 !important;
+        justify-content: flex-start !important;
+        gap: 12px !important;
+        padding: 2px 0 10px 0 !important;
+      }
+      .footer-right .icon { margin-left: 0 !important; }
+      .footer-info {
+        margin-top: 14px !important;
+        font-size: 12px !important;
+        text-align: left !important;
+      }
+      .footer-contact {
+        justify-content: flex-start !important;
         gap: 6px 10px !important;
       }
-
-      .copyright{
+      .footer a, .footer a:visited {
+        color: inherit !important;
+        text-decoration: none !important;
+      }
+      .copyright {
+        margin-top: 8px !important;
         font-size: 11px !important;
+        text-align: left !important;
       }
     }
   </style>
@@ -482,12 +481,10 @@
             <span class="meta-label">CLIENT</span>
             <span class="meta-value"> - </span>
           </div>
-
           <div class="meta-item">
             <span class="meta-label">DATE</span>
             <span class="meta-value">2025</span>
           </div>
-
           <div class="meta-item">
             <span class="meta-label">TYPE</span>
             <span class="meta-value">MEDIA ART</span>
@@ -497,7 +494,7 @@
 
       <!-- 3) MAIN IMAGE -->
       <div class="hero-shot">
-        <img src="images/projects_gmap_2025.png" alt="g-map Media Art 2025">
+        <img src="images/projects_gmap_2025.png" alt="projects_gmap_2025">
       </div>
 
       <!-- 4) PROJECT OVERVIEW -->
@@ -542,14 +539,14 @@
       </nav>
 
       <div class="footer-right">
-        <a href="https://www.instagram.com/olab_seoul" target="_blank" rel="noopener noreferrer" class="icon">
+        <a href="https://www.instagram.com/olab_seoul" target="_blank" rel="noopener noreferrer" class="icon" aria-label="instagram">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img" aria-hidden="true">
             <path fill="currentColor"
               d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 186.6c-39.6 0-71.7-32.1-71.7-71.7s32.1-71.7 71.7-71.7 71.7 32.1 71.7 71.7-32.1 71.7-71.7 71.7zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-.2-35.7-9.9-67.3-36.3-93.7s-58-36.1-93.7-36.3c-37-.2-147.3-.2-184.3 0-35.7.2-67.3 9.9-93.7 36.3s-36.1 58-36.3 93.7c-.2 37-.2 147.3 0 184.3.2 35.7 9.9 67.3 36.3 93.7s58 36.1 93.7 36.3c37 .2 147.3.2 184.3 0 35.7-.2 67.3-9.9 93.7-36.3s36.1-58 36.3-93.7c.2-37.1.2-147.4 0-184.3zm-48.5 224c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.4 9s-102.9 2.6-132.4-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.4s-2.6-102.9 9-132.4c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.4-9s102.9-2.6 132.4 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.4s2.7 102.9-9 132.4z" />
           </svg>
         </a>
 
-        <a href="https://www.youtube.com/@olab_seoul" target="_blank" rel="noopener noreferrer" class="icon">
+        <a href="https://www.youtube.com/@olab_seoul" target="_blank" rel="noopener noreferrer" class="icon" aria-label="youtube">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" role="img" aria-hidden="true">
             <path fill="currentColor"
               d="M549.7 124.1c-6.3-23.7-24.9-42.4-48.4-48.7C456.4 64 288 64 288 64s-168.4 0-213.3 11.4c-23.6 6.3-42.1 25-48.4 48.7C15 168.1 15 256 15 256s0 87.9 11.3 131.9c6.3 23.7 24.9 42.4 48.4 48.7C119.6 448 288 448 288 448s168.4 0 213.3-11.4c23.6-6.3 42.1-25 48.4-48.7C561 343.9 561 256 561 256s0-87.9-11.3-131.9zM232 334.7V177.3l142.7 78.7L232 334.7z" />

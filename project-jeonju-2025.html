@@ -19,11 +19,10 @@
       overflow-x: hidden;
     }
 
- /* ---------- HEADER ---------- */
+    /* ---------- HEADER (about 통일) ---------- */
     header {
       position: fixed;
-      top: 0;
-      left: 0;
+      top: 0; left: 0;
       width: 100%;
       height: 80px;
       display: flex;
@@ -38,7 +37,6 @@
     .logo img {
       height: 24px;
       cursor: pointer;
-      transition: transform 0.3s ease;
     }
 
     nav {
@@ -57,7 +55,6 @@
       letter-spacing: 1px;
       transition: opacity 0.3s;
     }
-
     nav a:hover { opacity: 0.6; }
 
     .contact {
@@ -66,7 +63,9 @@
       text-decoration: none;
       color: #fff;
       cursor: pointer;
+      transition: opacity 0.3s;
     }
+    .contact:hover { opacity: 0.8; }
 
     /* ---------- PAGE WRAP ---------- */
     main {
@@ -152,7 +151,7 @@
       font-weight: 400;
     }
 
-    /* ---------- THUMB IMAGE (대표 이미지) ---------- */
+    /* ---------- THUMB IMAGE ---------- */
     .hero-shot {
       border-radius: 14px;
       overflow: hidden;
@@ -166,26 +165,27 @@
       opacity: .98;
     }
 
-    /* ---------- OVERVIEW (좌: 라벨 / 우: 본문) ---------- */
-.overview {
-  display: grid;
-  grid-template-columns: 200px 1fr; /* 라벨 컬럼 살짝 줄임 */
-  column-gap: clamp(22px, 73.2vw, 86px);
-  align-items: start;
-  margin-bottom: clamp(34px, 4vw, 68px);
-}
+    /* ---------- OVERVIEW ---------- */
+    .overview {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      column-gap: clamp(22px, 3.2vw, 86px);
+      align-items: start;
+      margin-bottom: clamp(34px, 4vw, 68px);
+    }
 
-.overview-label {
-  font-size: clamp(16px, 1.25vw, 20px); /* 본문보다 확실히 크게 */
-  font-weight: 900;                    /* 더 볼드 */
-  letter-spacing: 0.18em;              /* 타이틀 느낌 강화 */
-  color: rgba(255,255,255,0.95);
-  white-space: nowrap;
-  line-height: 1.2;
-  padding-top: 35px;                    /* 본문 첫 줄이랑 높이 분리 */
-  text-transform: uppercase;
-}
-	      .overview-body {
+    .overview-label {
+      font-size: clamp(16px, 1.25vw, 20px);
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.95);
+      white-space: nowrap;
+      line-height: 1.2;
+      padding-top: 35px;
+      text-transform: uppercase;
+    }
+
+    .overview-body {
       font-size: clamp(16px, 1.25vw, 20px);
       line-height: 1.7;
       letter-spacing: 0.01em;
@@ -193,8 +193,6 @@
       font-weight: 400;
       white-space: pre-line;
     }
-
-
 
     /* ---------- GALLERY ---------- */
     .gallery {
@@ -223,36 +221,45 @@
       opacity: 1;
     }
 
-    /* ---------- FOOTER ---------- */
-    footer.footer {
-      background-color: #333;
+    /* ---------- FOOTER (about 통일) ---------- */
+    .footer {
+      background-color: #202020;
       color: #888;
       font-family: "Pretendard", sans-serif;
-      padding: 10px 80px 24px;
+      padding: 40px 80px 30px;
     }
 
     .footer-top {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #222;
-      padding: 12px 0 16px;
+      margin-bottom: 40px;
     }
 
-    .footer-left { padding-left: 30px; }
     .footer-logo { display: inline-block; text-decoration: none; }
-    .footer-logo-img { height: 16px; display: block; }
+
+    .footer-logo-img {
+      height: 16px;
+      display: block;
+    }
+
+    .footer-left {
+      padding-left: 30px;
+      display: flex;
+      align-items: center;
+    }
 
     .footer-nav {
       display: flex;
-      gap: 40px;
+      align-items: center;
+      margin-left: 60px;
     }
+
     .footer-nav a {
       text-decoration: none;
       color: #ccc;
       font-weight: 600;
-      font-size: clamp(12px, 0.85vw, 14px);
-      transition: color .3s;
+      margin-right: 40px;
+      transition: color 0.3s;
     }
     .footer-nav a:hover { color: #fff; }
 
@@ -262,6 +269,7 @@
       margin-left: auto;
       justify-content: flex-end;
     }
+
     .footer-right .icon {
       display: inline-flex;
       align-items: center;
@@ -271,185 +279,163 @@
       margin-left: 16px;
       color: #bbb;
       text-decoration: none;
-      transition: color .25s ease, transform .25s ease;
+      transition: color 0.25s ease, transform 0.25s ease;
     }
+
     .footer-right .icon svg {
       width: 18px;
       height: 18px;
       display: block;
       fill: currentColor;
     }
-    .footer-right .icon:hover {
-      color: #fff;
-      transform: scale(1.1);
-    }
+    .footer-right .icon:hover { color: #fff; transform: scale(1.15); }
 
     .footer-info {
       text-align: center;
-      margin-top: 40px;
-      font-size: clamp(12px, 0.9vw, 15px);
+      font-size: 14px;
       color: #666;
     }
+
     .footer-contact {
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
     }
     .footer-contact .divider { color: #bbb; }
-    .email, .tel, .email2 {
-      font-weight: 500;
-      color: #bbb;
-      font-size: clamp(12px, 0.85vw, 14px);
-    }
+    .email, .tel, .email2 { font-weight: 500; color: #bbb; }
+
     .copyright {
-      font-size: clamp(11px, 0.8vw, 13px);
+      font-size: 13px;
       color: #555;
       text-align: center;
+      margin-top: 4px;
     }
 
-@media (max-width: 768px){
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .overview { grid-template-columns: 1fr; row-gap: 14px; }
+      .overview-label { padding-top: 0; }
+    }
 
-  /* ===== Header: 겹침 방지 ===== */
-  header{
-    padding: 0 16px !important;
-    height: 64px !important;
-  }
+    @media (max-width: 768px) {
+      header {
+        padding: 0 16px !important;
+        height: 64px !important;
+      }
+      .logo img { height: 20px !important; }
+      nav {
+        position: static !important;
+        left: auto !important;
+        transform: none !important;
+        display: flex !important;
+        gap: 12px !important;
+        margin: 0 10px !important;
+      }
+      nav a {
+        font-size: 12px !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
+      }
+      .contact {
+        font-size: 12px !important;
+        letter-spacing: 0.5px !important;
+        white-space: nowrap !important;
+      }
 
-  .logo img{
-    height: 20px !important;
-  }
+      main {
+        padding-top: 96px !important;
+        padding-bottom: 72px !important;
+      }
+      .detail-wrap {
+        width: calc(100% - 32px) !important;
+        max-width: 100% !important;
+      }
+      .video-card, .hero-shot, .shot {
+        border-radius: 10px !important;
+      }
+      .detail-title {
+        font-size: 26px !important;
+        line-height: 1.25 !important;
+      }
+      .meta-row {
+        gap: 12px 18px !important;
+        margin-bottom: 22px !important;
+        font-size: 12px !important;
+      }
+      .meta-label { font-size: 11px !important; }
+      .overview {
+        grid-template-columns: 1fr !important;
+        column-gap: 0 !important;
+        row-gap: 12px !important;
+      }
+      .overview-label {
+        padding-top: 0 !important;
+        font-size: 14px !important;
+        letter-spacing: 0.14em !important;
+      }
+      .overview-body {
+        font-size: 14px !important;
+        line-height: 1.85 !important;
+      }
+      .gallery { gap: 16px !important; }
 
-  nav{
-    position: static !important;
-    left: auto !important;
-    transform: none !important;
-    display: flex !important;
-    gap: 12px !important;
-    margin: 0 10px !important;
-  }
-
-  nav a{
-    font-size: 12px !important;
-    letter-spacing: 0.5px !important;
-    white-space: nowrap !important;
-  }
-
-  .contact{
-    font-size: 12px !important;
-    letter-spacing: 0.5px !important;
-    white-space: nowrap !important;
-  }
-
-  /* ===== Main spacing ===== */
-  main{
-    padding-top: 96px !important;   /* 64(header)+여유 */
-    padding-bottom: 72px !important;
-  }
-
-  .detail-wrap{
-    width: calc(100% - 32px) !important;
-    max-width: 100% !important;
-  }
-
-  /* ===== Video / Images ===== */
-  .video-card,
-  .hero-shot,
-  .shot{
-    border-radius: 10px !important;
-  }
-
-  /* ===== Title / meta ===== */
-  .detail-title{
-    font-size: 26px !important;
-    line-height: 1.25 !important;
-  }
-
-  .meta-row{
-    gap: 12px 18px !important;
-    margin-bottom: 22px !important;
-    font-size: 12px !important;
-  }
-
-  .meta-label{
-    font-size: 11px !important;
-  }
-
-  /* ===== Overview: 1 column ===== */
-  .overview{
-    grid-template-columns: 1fr !important;
-    column-gap: 0 !important;
-    row-gap: 12px !important;
-  }
-
-  .overview-label{
-    padding-top: 0 !important;
-    font-size: 14px !important;
-    letter-spacing: 0.14em !important;
-  }
-
-  .overview-body{
-    font-size: 14px !important;
-    line-height: 1.85 !important;
-  }
-
-  /* ===== Gallery spacing ===== */
-  .gallery{
-    gap: 16px !important;
-  }
-
-  /* ===== Footer: 기존 페이지들과 통일 ===== */
-  .footer{
-    padding: 12px 16px 22px !important;
-  }
-
-  .footer-top{
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 12px !important;
-    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
-    padding: 10px 0 14px !important;
-  }
-
-  .footer-left{
-    padding-left: 0 !important;
-  }
-
-  .footer-nav{
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 10px 16px !important;
-  }
-
-  .footer-right{
-    margin-left: 0 !important;
-    justify-content: flex-start !important;
-  }
-
-  .footer-info{
-    margin-top: 18px !important;
-    font-size: 12px !important;
-  }
-
-  .footer-contact{
-    gap: 6px 10px !important;
-    font-size: 12px !important;
-  }
-	  /* 아이폰에서 전화번호가 파란 링크로 보이는 거 방지 */
-  .footer a,
-  .footer a:visited{
-    color: inherit !important;
-    text-decoration: none !important;
-  }
-
-
-  .copyright{
-    font-size: 11px !important;
-  }
-}
-
-
+      /* FOOTER MOBILE */
+      .footer {
+        padding: 14px 16px 22px !important;
+      }
+      .footer-top {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 0 !important;
+      }
+      .footer-left,
+      .footer-nav,
+      .footer-right,
+      .footer-info {
+        width: 100% !important;
+      }
+      .footer-left {
+        padding-left: 0 !important;
+        margin: 0 0 10px 0 !important;
+      }
+      .footer-nav {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 10px 16px !important;
+        margin: 6px 0 12px 0 !important;
+      }
+      .footer-nav a {
+        margin-right: 0 !important;
+        font-size: 12px !important;
+      }
+      .footer-right {
+        margin-left: 0 !important;
+        justify-content: flex-start !important;
+        gap: 12px !important;
+        padding: 2px 0 10px 0 !important;
+      }
+      .footer-right .icon { margin-left: 0 !important; }
+      .footer-info {
+        margin-top: 14px !important;
+        font-size: 12px !important;
+        text-align: left !important;
+      }
+      .footer-contact {
+        justify-content: flex-start !important;
+        gap: 6px 10px !important;
+      }
+      .footer a, .footer a:visited {
+        color: inherit !important;
+        text-decoration: none !important;
+      }
+      .copyright {
+        margin-top: 8px !important;
+        font-size: 11px !important;
+        text-align: left !important;
+      }
+    }
   </style>
 </head>
 
@@ -496,12 +482,10 @@
             <span class="meta-label">CLIENT</span>
             <span class="meta-value"> - </span>
           </div>
-
           <div class="meta-item">
             <span class="meta-label">DATE</span>
             <span class="meta-value">2025</span>
           </div>
-
           <div class="meta-item">
             <span class="meta-label">TYPE</span>
             <span class="meta-value">MEDIA ART</span>
@@ -509,23 +493,23 @@
         </div>
       </div>
 
-      <!-- 3) MAIN IMAGE (서울로 이미지로 교체) -->
+      <!-- 3) MAIN IMAGE -->
       <div class="hero-shot">
         <img src="images/projects_jeonju_2025.png" alt="Jeonju Media Art 2025">
       </div>
 
-      <!-- 4) PROJECT OVERVIEW (좌 라벨 + 우 본문) -->
+      <!-- 4) PROJECT OVERVIEW -->
       <div class="overview">
         <div class="overview-label">PROJECT OVERVIEW</div>
 
         <div class="overview-body">
-이 작품은 ‘그라데이션 K (Gradation K)’ 를 키워드로 전주라는 도시의 정체성을 과거의 유산이 아닌, 세계와 소통하고 기술과 접목하는 살아 있는 콘텐츠로 재해석하고자 기획되었다.
+이 작품은 '그라데이션 K (Gradation K)' 를 키워드로 전주라는 도시의 정체성을 과거의 유산이 아닌, 세계와 소통하고 기술과 접목하는 살아 있는 콘텐츠로 재해석하고자 기획되었다.
 
 전통, 공연, 기술, 광고의 경계를 넘나드는 장르 융합적 콘텐츠로서, 관객에게는 흥미롭고 감각적인 몰입감을, 도시에는 브랜드 자산으로서의 확장 가능성을 제시하였다.
 
 LMF(LED Media Facade]+무대연출+커머셜 영상을 융합해 3D아나몰픽 기법을 활용하여 제작되었으며, 전통문화도시 전주를 하나의 인격체로 의인화하여 전주가 직접 자신을 소개하고 미래를 이야기하는 서사 영상이다.
 
-전주가 바라는 지속가능한 미래, 방향을 시각 언어로 표현하여 ‘전통을 품은 세계문화도시 전주’의 비전을 전달했다.
+전주가 바라는 지속가능한 미래, 방향을 시각 언어로 표현하여 '전통을 품은 세계문화도시 전주'의 비전을 전달했다.
         </div>
       </div>
 
@@ -556,14 +540,14 @@ LMF(LED Media Facade]+무대연출+커머셜 영상을 융합해 3D아나몰픽 
       </nav>
 
       <div class="footer-right">
-        <a href="https://www.instagram.com/olab_seoul" target="_blank" rel="noopener noreferrer" class="icon">
+        <a href="https://www.instagram.com/olab_seoul" target="_blank" rel="noopener noreferrer" class="icon" aria-label="instagram">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" role="img" aria-hidden="true">
             <path fill="currentColor"
               d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9S160.5 370.8 224.1 370.8 339 319.5 339 255.9 287.7 141 224.1 141zm0 186.6c-39.6 0-71.7-32.1-71.7-71.7s32.1-71.7 71.7-71.7 71.7 32.1 71.7 71.7-32.1 71.7-71.7 71.7zm146.4-194.3c0 14.9-12.1 27-27 27s-27-12.1-27-27 12.1-27 27-27 27 12.1 27 27zm76.1 27.2c-.2-35.7-9.9-67.3-36.3-93.7s-58-36.1-93.7-36.3c-37-.2-147.3-.2-184.3 0-35.7.2-67.3 9.9-93.7 36.3s-36.1 58-36.3 93.7c-.2 37-.2 147.3 0 184.3.2 35.7 9.9 67.3 36.3 93.7s58 36.1 93.7 36.3c37 .2 147.3.2 184.3 0 35.7-.2 67.3-9.9 93.7-36.3s36.1-58 36.3-93.7c.2-37.1.2-147.4 0-184.3zm-48.5 224c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.4 9s-102.9 2.6-132.4-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.4s-2.6-102.9 9-132.4c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.4-9s102.9-2.6 132.4 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.4s2.7 102.9-9 132.4z" />
           </svg>
         </a>
 
-        <a href="https://www.youtube.com/@olab_seoul" target="_blank" rel="noopener noreferrer" class="icon">
+        <a href="https://www.youtube.com/@olab_seoul" target="_blank" rel="noopener noreferrer" class="icon" aria-label="youtube">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" role="img" aria-hidden="true">
             <path fill="currentColor"
               d="M549.7 124.1c-6.3-23.7-24.9-42.4-48.4-48.7C456.4 64 288 64 288 64s-168.4 0-213.3 11.4c-23.6 6.3-42.1 25-48.4 48.7C15 168.1 15 256 15 256s0 87.9 11.3 131.9c6.3 23.7 24.9 42.4 48.4 48.7C119.6 448 288 448 288 448s168.4 0 213.3-11.4c23.6-6.3 42.1-25 48.4-48.7C561 343.9 561 256 561 256s0-87.9-11.3-131.9zM232 334.7V177.3l142.7 78.7L232 334.7z" />
