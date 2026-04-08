@@ -87,12 +87,46 @@
     }
 
     .main-content img {
-      width: 30vw;
+      width: 25vw;
       max-width: 1000px;
       height: auto;
       object-fit: contain;
       transition: transform 0.5s ease;
     }
+	  
+	  /* ===== 영상 배경 추가 ===== */
+.main-content{
+  position: relative;
+}
+
+.bg-video{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit:  ;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+/* 영상 위 어둡게 (선택) */
+.main-content::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* 기존 로고 위로 올림 */
+.main-logo{
+  position: relative;
+  z-index: 2;
+}
 
     /* ---------- PAGE INDICATOR ---------- */
     .indicator {
@@ -123,231 +157,7 @@
       border-color: #fff;
     }
 
-    /* ---------- main_about ---------- */
-    .about-content {
-      position: relative;
-      text-align: center;
-      color: white;
-      width: 100%;
-    }
-
-    .about-content img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .about-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .about-text h2 {
-      font-size: 40px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .about-text h4 {
-      font-size: 28px;
-      font-weight: 300;
-      margin-bottom: 35px;
-    }
-
-    .about-btn {
-      font-size: 20px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .about-btn:hover {
-      opacity: 0.7;
-      transition: opacity 0.3s ease;
-    }
-
-    /* ---------- main_who ---------- */
-    .who-content {
-      position: relative;
-      text-align: center;
-      color: white;
-      width: 100%;
-    }
-
-    .who-content img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .who-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      text-align: center;
-      width: 80%;
-      max-width: 1000px;
-    }
-
-    .who-text h2 {
-      font-size: 2.5em;
-      font-weight: bold;
-      margin-bottom: 20px;
-    }
-
-    .who-text h4 {
-      font-weight: 400;
-      line-height: 1.6;
-      margin-bottom: 40px;
-    }
-
-    .who-boxes {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    .who-box {
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 20px;
-      padding: 15px 40px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    .who-box:hover { background-color: rgba(255, 255, 255, 0.1); }
-
-    /* ========== WORKS SECTION ========== */
-    #works {
-      background: black;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      position: relative;
-      overflow: hidden;
-      padding-top: 80px;
-    }
-
-    .slider {
-      position: relative;
-      width: 80%;
-      max-width: 1000px;
-      overflow: hidden;
-      border-radius: 10px;
-    }
-
-    .slides {
-      display: flex;
-      width: 500%;
-      animation: slide 16s infinite;
-    }
-
-    .slide { flex: 0 0 20%; transition: transform 1s ease; }
-    .slide img { width: 100%; display: block; object-fit: cover; }
-
-    @keyframes slide {
-      0%   { transform: translateX(0%); }
-      16%  { transform: translateX(0%); }
-      20%  { transform: translateX(-20%); }
-      36%  { transform: translateX(-20%); }
-      40%  { transform: translateX(-40%); }
-      56%  { transform: translateX(-40%); }
-      60%  { transform: translateX(-60%); }
-      76%  { transform: translateX(-60%); }
-      80%  { transform: translateX(-80%); }
-      96%  { transform: translateX(-80%); }
-      100% { transform: translateX(0%); }
-    }
-
-    .navigation {
-      position: absolute;
-      top: 50%;
-      width: 80%;
-      max-width: 1000px;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      pointer-events: none;
-    }
-
-    .navigation .prev,
-    .navigation .next {
-      color: white;
-      font-size: 2.5rem;
-      padding: 10px 15px;
-      transition: opacity 0.3s;
-      pointer-events: auto;
-      cursor: pointer;
-    }
-
-    .navigation .prev:hover,
-    .navigation .next:hover { opacity: 0.6; }
-
-    .works-title {
-      color: #fff;
-      text-align: center;
-      margin-top: 20px;
-      font-size: 20px;
-      padding: 10px 0;
-    }
-
-    .works-title a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: opacity 0.3s ease;
-    }
-    .works-title a:hover { opacity: 0.7; }
-
-    /* ---------- JOIN SECTION ---------- */
-    .center-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: #000;
-    }
-
-    .scroll-line {
-      width: 1px;
-      height: 150px;
-      background: #fff;
-      position: relative;
-      margin-bottom: 20px;
-    }
-
-    .scroll-line::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 6px;
-      height: 6px;
-      background: #fff;
-      border-radius: 50%;
-    }
-
-    .join-btn {
-      display: inline-block;
-      background-color: #1F1F1F;
-      color: #fff;
-      padding: 14px 40px;
-      font-size: 1.2rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-    .join-btn:hover { background-color: #595959; }
-
+   
     /* ---------- FOOTER ---------- */
     .footer {
       background-color: #202020;
@@ -441,33 +251,6 @@
         max-width: none !important;
       }
 
-      /* ABOUT/WHO 텍스트 축소 */
-      .about-text{ width: 92% !important; }
-      .about-text h2{ font-size: 26px !important; margin-bottom: 8px !important; }
-      .about-text h4{ font-size: 16px !important; margin-bottom: 18px !important; line-height: 1.35 !important; }
-      .about-btn{ font-size: 14px !important; }
-
-      .who-text{ width: 92% !important; }
-      .who-text h2{ font-size: 22px !important; margin-bottom: 12px !important; }
-      .who-text h4{ font-size: 13px !important; margin-bottom: 16px !important; line-height: 1.5 !important; }
-
-      .who-boxes{ gap: 10px !important; }
-      .who-box{ padding: 10px 14px !important; border-radius: 14px !important; font-size: 12px !important; }
-
-      /* WORKS */
-      #works{ padding-top: 64px !important; }
-      .slider{ width: 92% !important; border-radius: 8px !important; }
-      .navigation{ width: 92% !important; }
-      .navigation .prev, .navigation .next{ font-size: 2rem !important; padding: 8px 10px !important; }
-      .works-title{ font-size: 16px !important; margin-top: 14px !important; }
-
-      /* JOIN */
-      .scroll-line{ height: 120px !important; margin-bottom: 16px !important; }
-      .join-btn{ padding: 12px 28px !important; font-size: 14px !important; }
-
-      /* FOOTER */
-      .footer{ padding: 12px 16px 22px !important; }
-      .footer-left{ padding-left: 0 !important; margin-bottom: 8px !important; }
 
       .footer-nav{
         display: flex !important;
@@ -587,79 +370,24 @@
     <a href="contact.html" class="contact">CONTACT</a>
   </header>
 
-  <!-- PAGE INDICATOR -->
-  <div class="indicator">
-    <a href="#home" class="active"></a>
-    <a href="#about"></a>
-    <a href="#who_we_are"></a>
-    <a href="#works"></a>
-    <a href="#join"></a>
-  </div>
-
+ 
   <!-- MAIN SECTION -->
+	
+	
   <section id="home">
-    <div class="main-content">
-      <a href="index.html">
-        <img src="images/logo_main.png" alt="OLAB_main Logo">
-      </a>
-    </div>
-  </section>
+   <div class="main-content">
 
-  <!-- ABOUT SECTION -->
-  <section id="about">
-    <div class="about-content">
-      <img src="images/main_about.png" alt="OLAB ABOUT PAGE">
-      <div class="about-text">
-        <h2>OLAB VISION</h2>
-        <h4>우리는 모험을 기록합니다.</h4>
-        <a href="about.html" class="about-btn">▶ About Us</a>
-      </div>
-    </div>
-  </section>
+  <!-- 영상 배경 -->
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="images/main_video.mp4" type="video/mp4">
+  </video>
 
-  <!-- WHO WE ARE SECTION -->
-  <section id="who_we_are">
-    <div class="who-content">
-      <img src="images/main_who.png" alt="OLAB WHO WE ARE">
-      <div class="who-text">
-        <h2>WHO WE ARE</h2>
-        <h4>OLAB은 다양한 형태의 예술을 브랜드에 담아<br>단순한 예술 작품을 넘어 새로운 예술적 가치를 창출합니다.</h4>
-        <div class="who-boxes">
-          <div class="who-box">Media Facade</div>
-          <div class="who-box">Interactive Art</div>
-          <div class="who-box">3D Graphic</div>
-          <div class="who-box">Film</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- 기존 로고 그대로 -->
+  <a href="index.html" class="main-logo">
+    <img src="images/logo_main.png" alt="OLAB_main Logo">
+  </a>
 
-  <!-- WORKS SECTION -->
-  <section id="works">
-    <div class="slider">
-      <div class="slides">
-        <a href="project-chungbuk-2024.html" class="slide"><img src="images/work1.png" alt="Chungbuk 2024"></a>
-        <a href="project-chungbuk-2025.html" class="slide"><img src="images/work2.png" alt="Chungbuk 2025"></a>
-        <a href="project-seoullo-2025.html" class="slide"><img src="images/work3.png" alt="seoullo 2025"></a>
-        <a href="project-jeonju-2025.html" class="slide"><img src="images/work4.png" alt="jeonju 2025"></a>
-        <a href="project-gmap-2025.html" class="slide"><img src="images/work5.png" alt="g-map2025"></a>
-      </div>
-    </div>
-
-    <div class="navigation">
-      <div class="prev">&#10094;</div>
-      <div class="next">&#10095;</div>
-    </div>
-
-    <h3 class="works-title"><a href="projects.html">▶ Works</a></h3>
-  </section>
-
-  <!-- JOIN SECTION -->
-  <section id="join" class="slide slide5">
-    <div class="center-content">
-      <div class="scroll-line"></div>
-      <a href="contact.html" class="join-btn">JOIN US</a>
-    </div>
+</div>
   </section>
 
   <!-- FOOTER -->
