@@ -364,7 +364,101 @@
     .footer-contact .divider { color: #bbb; }
     .email, .tel, .email2 { font-weight: 500; color: #bbb; }
     .copyright { font-size: 13px; color: #555; text-align: center; }
-  </style>
+  
+	      /* === 햄버거 버튼 === */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; background: none; border: none; padding: 4px; z-index: 200;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px; background: #fff;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* === 모바일 드로어 === */
+    .mobile-menu {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.97); backdrop-filter: blur(20px);
+      z-index: 99; flex-direction: column; align-items: center;
+      justify-content: center; gap: 44px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      text-decoration: none; color: #fff; font-size: 28px;
+      font-weight: 800; letter-spacing: 0.12em; transition: opacity 0.3s;
+    }
+    .mobile-menu a:hover { opacity: 0.5; }
+
+    /* === 모바일 반응형 768px 이하 === */
+    @media (max-width: 768px) {
+      header { padding: 0 24px; height: 64px; }
+      nav { display: none; }
+      .contact-link { display: none; }
+      .hamburger { display: flex; }
+      .indicator { display: none; }
+      section::before, section::after { height: 100px; }
+
+      .intro-inner { flex-direction: column; align-items: flex-start; gap: 28px; width: 88%; padding-top: 80px; }
+      .intro-logo img { width: 180px; margin-top: 0; }
+      .intro-right { flex-direction: column; gap: 20px; }
+      .intro-line { display: none; }
+      .intro-title { font-size: 22px; margin: 8px 0; }
+      .intro-text-box p { font-size: 14px; line-height: 1.9; }
+      .intro-tag { font-size: 12px; }
+
+      .who-container { width: 88%; padding-top: 80px; padding-bottom: 40px; justify-content: flex-start; gap: 24px; }
+      .who-top h2 { font-size: 24px; }
+      .who-desc { font-size: 13px; text-align: left; }
+      .who-categories { flex-direction: column; }
+      .who-cat { padding: 18px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .who-cat:last-child { border-bottom: none; }
+      .cat-inner { flex-direction: row; justify-content: space-between; align-items: center; }
+      .cat-title { font-size: 18px; min-height: unset; margin-bottom: 0; text-align: left; justify-content: flex-start; }
+      .cat-sub { font-size: 11px; color: #666; text-align: right; }
+
+      .what-container { width: 88%; padding-top: 80px; padding-bottom: 40px; }
+      .what-title { font-size: 24px; }
+      .what-columns { flex-direction: column; gap: 44px; }
+      .what-box { width: 100%; }
+      .what-box h3 { font-size: 20px; margin-bottom: 10px; }
+      .what-box p { font-size: 14px; line-height: 1.9; }
+      .what-line { height: 56px; width: 6px; }
+
+      .contact-container { width: 88%; padding-top: 80px; padding-bottom: 40px; overflow-y: auto; }
+      .contact-container h2 { font-size: 24px; margin-bottom: 20px; }
+      .contact-body { flex-direction: column; align-items: flex-start; gap: 32px; }
+      .contact-cards { flex: none; width: 100%; }
+      .contact-card { padding: 16px 18px; gap: 14px; }
+      .card-value { font-size: 14px; }
+      .card-icon { width: 36px; height: 36px; }
+      .card-icon svg { width: 16px; height: 16px; }
+      .contact-right { width: 100%; gap: 24px; }
+      .contact-tagline { font-size: 30px; }
+      .contact-desc { font-size: 14px; max-width: 100%; line-height: 1.8; }
+      .contact-page-btn { padding: 14px 28px; font-size: 13px; }
+
+      .footer { padding: 16px 24px; }
+      .footer-top { flex-wrap: wrap; gap: 12px; }
+      .footer-left { padding-left: 0; }
+      .footer-nav { display: none; }
+      .footer-right { margin-left: 0; }
+      .footer-info { margin-top: 16px; font-size: 12px; }
+      .footer-contact { flex-direction: column; align-items: center; gap: 6px; }
+      .footer-contact .divider { display: none; }
+      .copyright { font-size: 11px; }
+    }
+    @media (max-width: 375px) {
+      .intro-title { font-size: 19px; }
+      .who-top h2, .what-title, .contact-container h2 { font-size: 20px; }
+      .cat-title { font-size: 16px; }
+      .what-box h3 { font-size: 17px; }
+      .contact-tagline { font-size: 26px; }
+    }
+
+	</style>
 </head>
 
 <body>
@@ -381,6 +475,18 @@
     </nav>
     <a href="#about-contact" class="contact-link">CONTACT</a>
   </header>
+	    <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="about.html" onclick="closeMobileMenu()">ABOUT</a>
+    <a href="projects.html" onclick="closeMobileMenu()">PROJECTS</a>
+    <a href="gallery.html" onclick="closeMobileMenu()">GALLERY</a>
+    <a href="#about-contact" onclick="closeMobileMenu()">CONTACT</a>
+  </div>
+
 
   <!-- 인디케이터 -->
   <div class="indicator">
@@ -601,6 +707,19 @@
   </footer>
 
   <script>
+	      const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    function closeMobileMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
     const fadeEls = document.querySelectorAll('.fade-in');
     const fadeObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
