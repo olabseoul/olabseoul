@@ -199,16 +199,19 @@
   <section id="home">
 
     <!-- ✅ 1920×1080 배경 영상 -->
-    <video
-      class="bg-video"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="auto"
-    >
-      <source src="images/main_video.mp4" type="video/mp4">
-    </video>
+   <video
+  class="bg-video"
+  autoplay
+  muted
+  loop
+  playsinline
+  webkit-playsinline
+  preload="auto"
+  disablePictureInPicture
+>
+  <source src="images/main_video.mp4" type="video/mp4">
+</video>
+
 
     <!-- 영상 위 어둠 오버레이 -->
     <div class="video-overlay"></div>
@@ -258,6 +261,25 @@
   </footer>
 
   <script>
+	  // 모바일 배경영상 강제 재생
+const bgVideo = document.querySelector('.bg-video');
+if (bgVideo) {
+  bgVideo.muted = true;
+  bgVideo.setAttribute('playsinline', '');
+  bgVideo.setAttribute('webkit-playsinline', '');
+  
+  // 터치/클릭 없이도 재생 시도
+  const playPromise = bgVideo.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      // 자동재생 실패 시 → 사용자 첫 터치에 재생
+      document.addEventListener('touchstart', () => {
+        bgVideo.play();
+      }, { once: true });
+    });
+  }
+}
+
     const sections = document.querySelectorAll("section");
     const dots = document.querySelectorAll(".indicator a");
     window.addEventListener("scroll", () => {
